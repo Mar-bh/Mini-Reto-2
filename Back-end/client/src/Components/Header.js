@@ -1,7 +1,7 @@
 import React from "react";
 
 function Header() {
-    return <button className="Header">X</button>;
+    return <h1>Welcome to my app</h1>;
   }
 
 export default Header;

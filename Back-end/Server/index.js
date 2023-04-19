@@ -12,8 +12,8 @@ app.get('/api/hello', (req,res) => {
 
 const fs = require("fs");
 
-app.get("/api/sound", async(req, res) => {
-    fs.readFile(__dirname + "/" + "sound.json", "utf8", (err, data) => {
+app.get("/api/sounds", async(req, res) => {
+    fs.readFile(__dirname + "/" + "sounds.json", "utf8", (err, data) => {
         console.log(data);
         res.end(data);
     });
@@ -21,7 +21,7 @@ app.get("/api/sound", async(req, res) => {
 
 app.use (bodyParser.json());
 
-app.post("/api/sound", (req, res) => {
+app.post("/api/sounds", (req, res) => {
     console.log("El cuerpo de la peticion: ", req.body); 
     res.sendStatus(200);
 });
