@@ -1,56 +1,63 @@
-
  import './App.css';
  import React from "react";
  import Header from './Components/Header';
 
 
 function App() {
-   const [data, setData] = React.useState(null);
+  const [data, setData] = React.useState(null);
 
-   React.useEffect(() => {
-     fetch("/api/sounds")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-   }, []);
+  React.useEffect(() => {
+    fetch("/api/sounds")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Failed to fetch data: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        const sounds = Object.values(data);
+        setData(sounds);
+      })
+      .catch((error) => {
+        console.error(error);
+        setData([]);
+      });
+  }, []);
 
-   function SoundCategoryRow({ category }) {
-    return (
-      <tr>
-        <th colSpan="2">
-          {category}
-        </th>
-      </tr>
-    );
+  if (!data) {
+    return <div>Loading...</div>;
   }
-  
+
   function SoundRow({ sound }) {
     return (
       <tr>
         <td>{sound.name}</td>
-        <td>{sound.source}</td>
+        <td>{sound.sound}</td>
       </tr>
     );
   }
-  
   function SoundTable({ sounds }) {
     const rows = [];
     let lastCategory = null;
   
-    sounds.forEach((sound) => {
-      if (sound.category !== lastCategory) {
+    if (sounds !== null) { // Add this check to prevent the error
+      sounds.forEach((sound) => {
+        if (sound.category !== lastCategory) {
+          rows.push(
+            <SoundCategoryRow
+              category={sound.category}
+              key={sound.category} />
+          );
+        }
         rows.push(
-          <SoundCategoryRow
-            category={sound.category}
-            key={sound.category} />
+          <SoundRow
+            sound={sound}
+            key={sound.name} />
         );
-      }
-      rows.push(
-        <SoundRow
-          sound={sound}
-          key={sound.name} />
-      );
-      lastCategory = sound.category;
-    });
+        lastCategory = sound.category;
+      });
+    }
+    
   
     return (
       <table>
@@ -65,6 +72,14 @@ function App() {
     );
   }
   
+  function SoundCategoryRow({ category }) {
+    return (
+      <tr>
+        <th colSpan="2">{category}</th>
+      </tr>
+    );
+  }
+  
   function SearchBar() {
     return (
       <form>
@@ -76,24 +91,18 @@ function App() {
   function FilterableSoundTable({ sounds }) {
     return (
       <div>
-        <SearchBar/>
+        <SearchBar />
         <SoundTable sounds={sounds} />
       </div>
     );
   }
 
-  const SOUNDS = [{category:"forest", source:"Youtube", name: "rain"}, 
-  {category:"forest", source:"Youtube", name: "rain2"}];
-  
-   return (
-     <div className="App">
-        <Header/>
-        <p>
-           {!data ? "Hellooooooo...": data}
-        </p>
-        <FilterableSoundTable sounds={SOUNDS} />
-     </div>
-   );
+  return (
+    <div className="App">
+      <Header/>
+      <FilterableSoundTable sounds={data} />
+    </div>
+  );
 }
 
 export default App;

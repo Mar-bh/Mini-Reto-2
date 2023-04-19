@@ -1,26 +1,22 @@
-{
-    "sound1": {
-        "id": 1,
+[
+    {
         "name": "rain 1",
-        "category": "forest",
-        "sound": "https://freesound.org/people/straget/sounds/531947/"
+        "source": "https://freesound.org/people/straget/sounds/531947/",
+        "category": "forest"
     },
-    "sound2": {
-        "id": 2,
+    {
         "name": "rain 2",
-        "category": "forest",
-        "sound": "https://freesound.org/people/InspectorJ/sounds/346642/"
+        "source": "https://freesound.org/people/InspectorJ/sounds/346642/",
+        "category": "forest"
     },
-    "sound3": {
-        "id": 3,
+    {
         "name": "conversacion 1",
-        "category": "cafe",
-        "sound": "https://freesound.org/people/RorisangKgatle/sounds/366607/"
+        "source": "https://freesound.org/people/RorisangKgatle/sounds/366607/",
+        "category": "cafe"
     },
-    "sound4": {
-        "id": 4,
+    {
         "name": "coffe machine",
-        "category": "cafe",
-        "sound": "https://freesound.org/people/4team/sounds/214994/"
+        "source": "https://freesound.org/people/4team/sounds/214994/",
+        "category": "cafe"
     }
-}
+]
