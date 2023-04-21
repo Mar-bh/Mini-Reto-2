@@ -1,4 +1,6 @@
  import './App.css';
+ //import './index.css';
+ import './styles.scss';
  import React from "react";
  import Header from './Components/Header';
 
