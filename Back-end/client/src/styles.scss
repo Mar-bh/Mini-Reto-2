@@ -1,9 +1,43 @@
+    
     body {
-        background-color: #e7377d;
+        background-color: #ffffff;
     }
   
     h1 {
         font-size: 36px;
         color: #ffb4dc;
     }
+    $button-color: #dfdfdf00;
+    $button-hover-color: #ffffff;
+    $text-hover-color: black;
+
+    .button {
+        background-color: $button-color;
+        border: none;
+        color: rgb(0, 0, 0);
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4% 1%;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        border-radius : 10%;
+        border: solid white;
+
+        &:hover {
+            background-color: $button-hover-color;
+            text-decoration: $text-hover-color;
+        }
+    }
+
+    .fatherContainer {
+        background-color: rgb(112, 198, 232);
+        flex-direction: row;
+        align-self: center;
+    }
+
+
+
   
