@@ -18,48 +18,138 @@ function App() {
   
   return (
     <div className = "fatherContainer">
-    <div className="container">
-      <h1 className="title">Mi Página Web en React con Sass hola</h1>
-      <button className="button"
-        onClick={() => {
-            console.log("Datos: ", data);
-            console.log("Hola");
-          }}
+      <div className="container">
+        <div className = "Options">
+          <button className="button"
+            onClick={() => {
+                console.log("Datos: ", data);
+              }}
+          >Theme</button>
+          <button className="button"
+            onClick={() => {
+                console.log("Datos: ", data);
+              }}
+          >Playlist</button>
+        </div>
+        <button className="button"
+          onClick={() => {
+              console.log("Datos: ", data);
+            }}
         >Forest</button>
         <button className="button"
-        onClick={() => {
-            console.log("Datos: ", data);
-            console.log("Hola");
-          }}
+          onClick={() => {
+              console.log("Datos: ", data);
+            }}
         >Sea</button>
         <button className="button"
-        onClick={() => {
-            console.log("Datos: ", data);
-            console.log("Hola");
-          }}
+          onClick={() => {
+              console.log("Datos: ", data);
+            }}
         >Library</button>
         <button className="button"
-        onClick={() => {
-            console.log("Datos: ", data);
-            console.log("Hola");
-          }}
+          onClick={() => {
+              console.log("Datos: ", data);
+            }}
         >Coffee Shop</button>
 
-    {/* <Button
-    className="button"
-    variant="outlined"
-    color="primary"
-    onClick={() => {
-        // Acción a realizar al hacer clic en el botón
-    }}
-    >
-    {/* <PlayArrowIcon /> */}
-    {/* </Button> */} 
+        {/* <Button
+        className="button"
+        variant="outlined"
+        color="primary"
+        onClick={() => {
+            // Acción a realizar al hacer clic en el botón
+        }}
+        >
+        {/* <PlayArrowIcon /> */}
+        {/* </Button> */} 
 
-    </div>
-    <div className = "volume">
-      <h1 className="title">Mi Página Web en React con Sass hola</h1>
-    </div>
+      </div>
+      <div className = "volume">
+        <div className = "col">
+          <button className="sound"onClick={() => {
+                  console.log("Volumen: ");
+                }}
+          >V</button>
+          <button className="buttonSound"
+              onClick={() => {
+                  console.log("Datos: ", data);
+                }}
+          >Crikets</button>
+          <button className="play"onClick={() => {
+                  console.log("Play: ");
+                }}
+          >II</button>
+          <button className="sound"onClick={() => {
+                  console.log("Volumen: ");
+                }}
+          >V</button>
+          <button className="buttonSound"
+              onClick={() => {
+                  console.log("Datos: ", data);
+                }}
+          >Leafes</button>
+          <button className="play"onClick={() => {
+                  console.log("Play: ");
+                }}
+          >II</button>
+        </div>
+        <div className = "col">
+          <button className="sound"onClick={() => {
+                  console.log("Volumen: ");
+                }}
+          >V</button>
+          <button className="buttonSound"
+              onClick={() => {
+                  console.log("Datos: ", data);
+                }}
+          >Birds</button>
+          <button className="play"onClick={() => {
+                  console.log("Play: ");
+                }}
+          >II</button>
+          <button className="sound"onClick={() => {
+                  console.log("Volumen: ");
+                }}
+          >V</button>
+          <button className="buttonSound"
+              onClick={() => {
+                  console.log("Datos: ", data);
+                }}
+          >Waterfalls</button>
+          <button className="play"onClick={() => {
+                  console.log("Play: ");
+                }}
+          >II</button>
+        </div>
+        <div className = "col">
+          <button className="sound"onClick={() => {
+                  console.log("Volumen: ");
+                }}
+          >V</button>
+          <button className="buttonSound"
+              onClick={() => {
+                  console.log("Datos: ", data);
+                }}
+          >Trees and air</button>
+          <button className="play"onClick={() => {
+                  console.log("Play: ");
+                }}
+          >II</button>
+          <button className="sound"onClick={() => {
+                  console.log("Volumen: ");
+                }}
+          >V</button>
+          <button className="buttonSound"
+              onClick={() => {
+                  console.log("Datos: ", data);
+                }}
+          >Rain</button>
+          <button className="play"onClick={() => {
+                  console.log("Play: ");
+                }}
+          >II</button>
+        </div>
+      </div>           
     </div>
     
   );
