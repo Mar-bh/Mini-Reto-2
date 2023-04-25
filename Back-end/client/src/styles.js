@@ -17,6 +17,7 @@ function App() {
   }, []);
   
   return (
+  <div className = "background">
     <div className = "fatherContainer">
       <div className="container">
         <div className = "Options">
@@ -151,7 +152,7 @@ function App() {
         </div>
       </div>           
     </div>
-    
+  </div>
   );
 }
 
