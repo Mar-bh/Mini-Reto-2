@@ -7,14 +7,35 @@ import './styles.scss';
 
 function App() {
 
+  //cricketsSounds,
+  //const [data, setDatos] = useState([]);
   const [data, setDatos] = useState([]);
+  // const [cricketsSounds, setCrickets] = useState([]);
+  const [text, setText] = useState('Initial text');
+
+  function handleClick(data) {
+    setText(data);
+  }
 
   useEffect(() => {
     fetch('http://localhost:3000/datos')
       .then(response => response.json())
       .then(data => setDatos(data))
       .catch(error => console.error(error));
+
+    fetch('http://localhost:3000/getCrickets')
+      .then(response => response.json())
+      .then(cricketsSounds => console.log(cricketsSounds))
+      .catch(error => console.error(error));
   }, []);
+
+
+  // useEffect(() => {
+  //   fetch('http://localhost:3000/getCrickets')
+  //     .then(response => response.json())
+  //     .then(cricketsSounds => console.log(cricketsSounds))
+  //     .catch(error => console.error(error));
+  // }, []);
   
   return (
   <div className = "background">
@@ -73,9 +94,11 @@ function App() {
           >V</button>
           <button className="buttonSound"
               onClick={() => {
-                  console.log("Datos: ", data);
+                  console.log("Crickets sound: ", data[3]);
+                  handleClick(data[3].sound_name);
+                  // console.log("Output: ", output);
                 }}
-          >Crikets</button>
+          >Crickets</button>
           <button className="play"onClick={() => {
                   console.log("Play: ");
                 }}
@@ -86,9 +109,10 @@ function App() {
           >V</button>
           <button className="buttonSound"
               onClick={() => {
-                  console.log("Datos: ", data);
+                  console.log("Leaves sound: ", data[1]);
+                  handleClick(data[1].sound_name);
                 }}
-          >Leafes</button>
+          >Leaves</button>
           <button className="play"onClick={() => {
                   console.log("Play: ");
                 }}
@@ -101,7 +125,8 @@ function App() {
           >V</button>
           <button className="buttonSound"
               onClick={() => {
-                  console.log("Datos: ", data);
+                  console.log("Birds sound: ", data[0]);
+                  handleClick(data[0].sound_name);
                 }}
           >Birds</button>
           <button className="play"onClick={() => {
@@ -114,9 +139,10 @@ function App() {
           >V</button>
           <button className="buttonSound"
               onClick={() => {
-                  console.log("Datos: ", data);
+                  console.log("River sound: ", data[5]);
+                  handleClick(data[5].sound_name);
                 }}
-          >Waterfalls</button>
+          >River</button>
           <button className="play"onClick={() => {
                   console.log("Play: ");
                 }}
@@ -129,9 +155,10 @@ function App() {
           >V</button>
           <button className="buttonSound"
               onClick={() => {
-                  console.log("Datos: ", data);
+                  console.log("Wind sound: ", data[4]);
+                  handleClick(data[4].sound_name);
                 }}
-          >Trees and air</button>
+          >Wind</button>
           <button className="play"onClick={() => {
                   console.log("Play: ");
                 }}
@@ -142,7 +169,8 @@ function App() {
           >V</button>
           <button className="buttonSound"
               onClick={() => {
-                  console.log("Datos: ", data);
+                  console.log("Datos: ", data[2]);
+                  handleClick(data[2].sound_name);
                 }}
           >Rain</button>
           <button className="play"onClick={() => {
@@ -150,6 +178,8 @@ function App() {
                 }}
           >II</button>
         </div>
+          <br/>
+          <p>Output: {text}</p>
       </div>           
     </div>
   </div>

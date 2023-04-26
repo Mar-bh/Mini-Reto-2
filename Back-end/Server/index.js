@@ -25,6 +25,16 @@ app.get('/datos', (req, res) => {
   });
 });
 
+// ejemplo segundo endpoint
+// app.get('/getCrickets', (req, res) => {
+//     connection.query('SELECT * FROM sounds WHERE sound_id = 4', (error, results, fields) => {
+//         if (error) throw error;
+//         res.send(results);
+//     });
+// });
+
+
+
 
 // module.exports = connection;
 
