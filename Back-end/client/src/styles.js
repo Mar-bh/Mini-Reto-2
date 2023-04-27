@@ -23,7 +23,7 @@ function App() {
       .then(data => setDatos(data))
       .catch(error => console.error(error));
 
-    fetch('http://localhost:3000/getCrickets')
+    fetch('https://studyvibes.vercel.app/getCrickets')
       .then(response => response.json())
       .then(cricketsSounds => console.log(cricketsSounds))
       .catch(error => console.error(error));
@@ -64,7 +64,7 @@ function App() {
         <div className = "Title">
           <h1>Ambience sounds</h1>
         </div>
-        <div className = "ThemeWindow">
+        <div className = "ThemeWindow2">
           <div className="container">
             <div className = "Options">
               <button className="button"
