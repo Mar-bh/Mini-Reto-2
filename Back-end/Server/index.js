@@ -3,18 +3,29 @@ const app = express();
 const cors = require('cors');
 app.use(cors());
 
-const bodyParser = require("body-parser");
+require("dotenv").config();
+const mysql = require("mysql2");
 
-const mysql = require('mysql');
+const DB = process.env.DATABASE_URL;
+const connection = mysql.createConnection(DB);
 
-const connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'minireto'
+connection.connect(function (err) {
+  if (err) throw err;
+  console.log("Connected!");
 });
 
-app.listen(3000, () => {
+const bodyParser = require("body-parser");
+
+// const mysql = require('mysql');
+
+// const connection = mysql.createConnection({
+//   host     : 'localhost',
+//   user     : 'root',
+//   password : '',
+//   database : 'minireto'
+// });
+
+app.listen(3001, () => {
   console.log('API RESTful escuchando en el puerto 3000');
 });
 
