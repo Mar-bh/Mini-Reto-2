@@ -12,7 +12,7 @@
     "web-vitals": "^3.3.1",
     "node-sass": "^8.0.0"
   },
-  "proxy": "http://localhost:3001/",
+  "proxy": "https://studyvibes.vercel.app/",
 
   "scripts": {
     "start": "react-scripts start",
