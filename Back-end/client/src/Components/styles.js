@@ -1,9 +1,5 @@
-// import connection from '../../Server';
 import React, { useState, useEffect } from 'react';
 import './styles.scss';
-//import Button from '@material-ui/core/Button';
-// import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-
 
 function SoundWindow() {
 
@@ -30,7 +26,7 @@ function SoundWindow() {
     <div className = "main">
       <div className = "fatherContainer">
         <div className = "Title">
-          <h1>Working on</h1>
+          <h1>Working on...</h1>
         </div>
         <div className = "ThemeWindow">
           <div className="container">

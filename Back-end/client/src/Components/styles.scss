@@ -1,12 +1,9 @@
     .background{
-        // doesnt work
         width: 100%;
         height: 100vh;
-        // background-image: contain;
         padding-top: 5%;
         background-position: center;
         background-size: cover;
-        // background-repeat: no-repeat;
         background-image: url('https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
     
     } 
@@ -24,8 +21,6 @@
         flex : 1;
         margin-left: 5%;
         margin-top: 10%;        
-        // width: 1vh;
-        // height: 3vh;
         opacity: 0.9;
         
     }
@@ -37,15 +32,12 @@
         flex : 1;
         margin-right: 5%;
         margin-top: 10%;        
-        // width: 600vh;
-        // height: 300vh;
         opacity: 0.9;
     }
     
     .ThemeWindow {
         border-radius: 3.5%;
         background-color: rgba(255, 255, 255, 0.555);
-        // margin-top: 5%;
         width: 40%;
         height: 45vh;
     }
@@ -53,15 +45,12 @@
     .ThemeWindow2 {
         border-radius: 3.5%;
         background-color: rgba(255, 255, 255, 0.555);
-        // margin-top: 5%;
-        // width: 40%;
         height: 45vh;
     }
 
     .Container{
         background-color: rgba(0, 255, 17, 0.608);
         margin-top: 5%;
-
     }
 
     body {
@@ -80,14 +69,11 @@
         text-align: justify;
     }
 
-    
-
     $button-color: #dfdfdf00;
     $button-hover-color: #ffffff;
     $text-hover-color: black;
     $oppacity: .8;
     $border: solid white;
-    
     
     .button {
         background-color: $button-color;
@@ -134,7 +120,6 @@
         &:hover {
             background-color: $button-hover-color;
             text-decoration: $text-hover-color;
-            // opacity: $oppacity;
             border: solid white;
 
         }
@@ -142,8 +127,6 @@
 
     .col{
         flex: 1;
-        // margin-top: 5%;
-        // margin-bottom: 5%;
     }
 
     .sound{
@@ -162,15 +145,12 @@
         border: solid white;
         margin-top: 0%;
         margin-bottom: 1%;
-        // width: 30%;
 
         &:hover {
             background-color: $button-hover-color;
             text-decoration: $text-hover-color;
-            // opacity: $oppacity;
             border: solid white;
         }
-        
     }
 
     .play {
@@ -182,21 +162,17 @@
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
-        // margin: 4% 1%;
         cursor: pointer;
         transition: background-color 0.3s;
         border-radius : 10%;
         border: solid white;
         margin-top: 0%;
         margin-bottom: 1%;
-        // width: 30%;
 
         &:hover {
             background-color: $button-hover-color;
             text-decoration: $text-hover-color;
-            // opacity: $oppacity;
             border: solid white;
-
         }
     }
 
@@ -220,7 +196,6 @@
             text-decoration: $text-hover-color;
             opacity: $oppacity;
             border: solid white;
-
         }
     }
 

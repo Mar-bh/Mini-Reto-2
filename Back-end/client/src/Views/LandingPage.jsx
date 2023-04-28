@@ -1,23 +1,18 @@
 import React from "react";
 import SoundWindow from "../Components/styles";
+import VolumeButton from "../Components/VolumeButton";
 
-
-const useStyles = makeStyles((theme) => ({
-  container: {
-    padding: 80
-  },
-}));
-
-function Window() {
-    const classes = useStyles()
+const Window = () => {
   return (
-    <Box className={classes.container}>
-        <SoundWindow>
-    </Box>
-  )
-}
+    <div>
+        <SoundWindow/>
+        <VolumeButton/>
+    </div>
+  );
+};
 
 export default Window;
+
 
 
 

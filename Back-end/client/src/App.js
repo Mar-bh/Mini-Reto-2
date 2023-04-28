@@ -1,7 +1,7 @@
 //  import './App.css';
 // import Window from './Components/styles.scss';
 import React from "react";
- import Window from './Components/styles';
+import Window from './Views/LandingPage';
 
 function App() {
   return (
