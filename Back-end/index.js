@@ -68,6 +68,7 @@ app.delete('/playlist/{playlistId}', (req, res) => {
     console.log("Datos: \t" + results);
   });
 });
+
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
