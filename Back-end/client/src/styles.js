@@ -18,12 +18,12 @@ function App() {
   }
 
   useEffect(() => {
-    fetch('https://studyvibes.vercel.app/datos')
+    fetch('/datos')
       .then(response => response.json())
       .then(data => setDatos(data))
       .catch(error => console.error(error));
 
-    fetch('https://studyvibes.vercel.app/getCrickets')
+    fetch('/getCrickets')
       .then(response => response.json())
       .then(cricketsSounds => console.log(cricketsSounds))
       .catch(error => console.error(error));
