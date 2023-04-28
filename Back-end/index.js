@@ -17,9 +17,52 @@ connection.connect(function (err) {
   console.log("Connected!");
 });
 
-module.exports = app;
 
+// GET
 app.get('/datos', (req, res) => {
+  connection.query('SELECT * FROM sounds', (error, results, fields) => {
+    if (error) throw error;
+    res.send(results);
+    console.log("Datos: \t" + results);
+  });
+});
+
+app.get('/playlist', (req, res) => {
+  connection.query('SELECT * FROM playlist_configuration', (error, results, fields) => {
+    if (error) throw error;
+    res.send(results);
+    console.log("Playlists: \t" + results);
+  });
+});
+
+app.get('/playlist/{playlistId}', (req, res) => {
+  connection.query('SELECT * FROM playlist_configuration WHERE sound_id = ' + req.params.playlistId, (error, results, fields) => {
+    if (error) throw error;
+    res.send(results);
+    console.log("Playlist: \t" + results + "Id: \t" + req.params.playlistId);
+  });
+});
+
+// POST
+app.post('/playlist/{playlistId}', (req, res) => {
+  connection.query('SELECT * FROM sounds', (error, results, fields) => {
+    if (error) throw error;
+    res.send(results);
+    console.log("Datos: \t" + results);
+  });
+});
+
+// PUT
+app.put('/playlist/{playlistId}', (req, res) => {
+  connection.query('SELECT * FROM sounds', (error, results, fields) => {
+    if (error) throw error;
+    res.send(results);
+    console.log("Datos: \t" + results);
+  });
+});
+
+// DELETE
+app.delete('/playlist/{playlistId}', (req, res) => {
   connection.query('SELECT * FROM sounds', (error, results, fields) => {
     if (error) throw error;
     res.send(results);
@@ -38,6 +81,7 @@ app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
 
+module.exports = app;
 
 // Local Database
 

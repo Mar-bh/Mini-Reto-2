@@ -19,14 +19,14 @@ function App() {
 
   useEffect(() => {
     fetch('/datos')
-      .then(response => response.json())
+      .then(response => console.log (response))//.json
       .then(data => setDatos(data))
       .catch(error => console.error(error));
 
-    fetch('/getCrickets')
-      .then(response => response.json())
-      .then(cricketsSounds => console.log(cricketsSounds))
-      .catch(error => console.error(error));
+    // fetch('/getCrickets')
+    //   .then(response => response.json())
+    //   .then(cricketsSounds => console.log(cricketsSounds))
+    //   .catch(error => console.error(error));
   }, []);
 
 
