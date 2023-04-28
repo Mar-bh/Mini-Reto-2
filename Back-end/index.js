@@ -23,7 +23,6 @@ app.get('/datos', (req, res) => {
   connection.query('SELECT * FROM sounds', (error, results, fields) => {
     if (error) throw error;
     res.send(results);
-    console.log("Datos: \t" + results);
   });
 });
 
