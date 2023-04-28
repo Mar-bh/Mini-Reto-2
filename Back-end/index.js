@@ -74,7 +74,24 @@ app.get('/playlist/:id', (req, res) => {
 
 // POST
 app.post('/playlist', (req, res) => {
-  connection.query('SELECT * FROM sounds', (error, results, fields) => {
+  const { 
+    name, 
+    theme, 
+    first_sound,
+    first_sound_volume,
+    second_sound,
+    second_sound_volume,
+    third_sound,
+    third_sound_volume,
+    fourth_sound,
+    fourth_sound_volume,
+    fifth_sound,
+    fifth_sound_volume,
+    sixth_sound,
+  } = req.body;
+
+  var query = "INSERT INTO playlist_configuration (name, theme, first_sound, first_sound_volume, second_sound, second_sound_volume, third_sound, third_sound_volume, fourth_sound, fourth_sound_volume, fifth_sound, fifth_sound_volume, sixth_sound) VALUES ('" + name + "', '" + theme + "', '" + first_sound + "', '" + first_sound_volume + "', '" + second_sound + "', '" + second_sound_volume + "', '" + third_sound + "', '" + third_sound_volume + "', '" + fourth_sound + "', '" + fourth_sound_volume + "', '" + fifth_sound + "', '" + fifth_sound_volume + "', '" + sixth_sound + "')";
+  connection.query(query, (error, results, fields) => {
     if (error) throw error;
     res.send(results);
     console.log("Datos: \t" + results);
@@ -82,8 +99,27 @@ app.post('/playlist', (req, res) => {
 });
 
 // PUT
-app.put('/playlist/:id', (req, res) => {
-  connection.query('SELECT * FROM sounds', (error, results, fields) => {
+app.put('/playlist/:id', async (req, res) => {
+  const id = req.params.id;
+  const {
+    name,
+    theme,
+    first_sound,
+    first_sound_volume,
+    second_sound,
+    second_sound_volume,
+    third_sound,
+    third_sound_volume,
+    fourth_sound,
+    fourth_sound_volume,
+    fifth_sound,
+    fifth_sound_volume,
+    sixth_sound,
+  } = req.body;
+   
+  const query = "UPDATE playlist_configuration SET name = '" + name + "', theme = '" + theme + "', first_sound = '" + first_sound + "', first_sound_volume = '" + first_sound_volume + "', second_sound = '" + second_sound + "', second_sound_volume = '" + second_sound_volume + "', third_sound = '" + third_sound + "', third_sound_volume = '" + third_sound_volume + "', fourth_sound = '" + fourth_sound + "', fourth_sound_volume = '" + fourth_sound_volume + "', fifth_sound = '" + fifth_sound + "', fifth_sound_volume = '" + fifth_sound_volume + "', sixth_sound = '" + sixth_sound + "' WHERE id_configuration = " + id;
+ 
+  connection.query(query, (error, results, fields) => {
     if (error) throw error;
     res.send(results);
     console.log("Datos: \t" + results);
