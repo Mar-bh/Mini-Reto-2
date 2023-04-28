@@ -9,7 +9,6 @@ const connection = mysql.createConnection(DB);
 
 connection.connect(function (err) {
   if (err) throw err;
-  console.log("Connected!");
 });
 
 const PORT = 3030;
@@ -22,7 +21,6 @@ app.use(bodyParser.json());
 app.get("/datos", (req, res) => {
   connection.connect(function (err) {
     if (err) throw err;
-    console.log("Connected!");
     connection.query("SELECT * FROM sounds", (error, results, fields) => {
       if (error) throw error;
       res.send(results);
