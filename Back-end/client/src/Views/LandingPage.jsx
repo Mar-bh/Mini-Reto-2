@@ -1,16 +1,40 @@
-// import React from "react";
+import React from "react";
+import SoundWindow from "../Components/styles";
+
+
+const useStyles = makeStyles((theme) => ({
+  container: {
+    padding: 80
+  },
+}));
+
+function Window() {
+    const classes = useStyles()
+  return (
+    <Box className={classes.container}>
+        <SoundWindow>
+    </Box>
+  )
+}
+
+export default Window;
+
+
+
+{/* // import React from "react";
 // // import Table from "../Components/Table";
 
 // // import { makeStyles } from "@mui/styles";
 // // import { Box } from "@mui/material";
 
-// const useStyles = makeStyles((theme) => ({
-//   container: {
-//     padding: 80
+// const useStyles = makeStyles((theme) => ({ */}
+{/* //   container: { */}
+{/* //     padding: 80
 //   },
 // }));
 
-// function Configuration() {
+// function Configuration() { }
+
 //     const classes = useStyles()
 //   return (
 
@@ -28,6 +52,7 @@
 // import VolumeButton from "./VolumeButton";
 
 // const SoundsConfig = () => {
+
 //   const [volume, setVolume] = useState(50);
 
 //   const handleVolumeChange = () => {
@@ -42,4 +67,4 @@
 //   );
 // };
 
-// export default SoundsConfig;
+// export default SoundsConfig;*/}

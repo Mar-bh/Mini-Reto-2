@@ -5,7 +5,7 @@ import './styles.scss';
 // import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 
 
-function App() {
+function SoundWindow() {
 
   //cricketsSounds,
   //const [data, setDatos] = useState([]);
@@ -23,20 +23,8 @@ function App() {
       .then(data => setDatos(data))
       .catch(error => console.error(error));
 
-    // fetch('/getCrickets')
-    //   .then(response => response.json())
-    //   .then(cricketsSounds => console.log(cricketsSounds))
-    //   .catch(error => console.error(error));
-  }, []);
-
-
-  // useEffect(() => {
-  //   fetch('http://localhost:3000/getCrickets')
-  //     .then(response => response.json())
-  //     .then(cricketsSounds => console.log(cricketsSounds))
-  //     .catch(error => console.error(error));
-  // }, []);
-  
+    }, []);
+    
   return (
   <div className = "background">
     <div className = "main">
@@ -99,16 +87,6 @@ function App() {
                 }}
             >Coffee Shop</button>
 
-            {/* <Button
-            className="button"
-            variant="outlined"
-            color="primary"
-            onClick={() => {
-                // Acción a realizar al hacer clic en el botón
-            }}
-            >
-            {/* <PlayArrowIcon /> */}
-            {/* </Button> */} 
 
           </div>
           <div className = "volume">
@@ -213,4 +191,20 @@ function App() {
   );
 }
 
-export default App;
+export default SoundWindow;
+
+// fetch('/getCrickets')
+//   .then(response => response.json())
+//   .then(cricketsSounds => console.log(cricketsSounds))
+//   .catch(error => console.error(error));
+
+// {/* <Button
+// className="button"
+// variant="outlined"
+// color="primary"
+// onClick={() => {
+//     // Acción a realizar al hacer clic en el botón
+// }}
+// >
+// {/* <PlayArrowIcon /> */}
+// {/* </Button> */} 
