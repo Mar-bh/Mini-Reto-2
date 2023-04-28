@@ -60,7 +60,6 @@ app.get('/playlist/:id', (req, res) => {
 
 // POST
 app.post('/playlist', (req, res) => {
-  const {name, }
   connection.query('SELECT * FROM sounds', (error, results, fields) => {
     if (error) throw error;
     res.send(results);
