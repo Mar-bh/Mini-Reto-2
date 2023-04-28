@@ -34,16 +34,33 @@ app.get('/playlist', (req, res) => {
   });
 });
 
-app.get('/playlist/{playlistId}', (req, res) => {
-  connection.query('SELECT * FROM playlist_configuration WHERE sound_id = ' + req.params.playlistId, (error, results, fields) => {
+app.get('/theme', (req,res) => {
+  connection.query("SELECT * FROM playlist JOIN playlist_sounds ON playlist.playlist_id = playlist_sounds.playlist_id"  , (error, results, fields) => {
     if (error) throw error;
     res.send(results);
-    console.log("Playlist: \t" + results + "Id: \t" + req.params.playlistId);
+    console.log("Playlists: \t" + results);
+  });
+})
+
+app.get('/theme/:id', (req,res) => {
+  connection.query("SELECT * FROM playlist JOIN playlist_sounds ON playlist.playlist_id = playlist_sounds.playlist_id WHERE playlist.playlist_id="+ req.params.id , (error, results, fields) => {
+    if (error) throw error;
+    res.send(results);
+    console.log("Playlists: \t" + results);
+  });
+})
+
+app.get('/playlist/:id', (req, res) => {
+  connection.query('SELECT * FROM playlist_configuration WHERE id_configuration  = ' + req.params.id, (error, results, fields) => {
+    if (error) throw error;
+    res.send(results);
+    console.log("Playlist: \t" + results + "Id: \t" + req.params.id);
   });
 });
 
 // POST
-app.post('/playlist/{playlistId}', (req, res) => {
+app.post('/playlist', (req, res) => {
+  const {name, }
   connection.query('SELECT * FROM sounds', (error, results, fields) => {
     if (error) throw error;
     res.send(results);
@@ -52,7 +69,7 @@ app.post('/playlist/{playlistId}', (req, res) => {
 });
 
 // PUT
-app.put('/playlist/{playlistId}', (req, res) => {
+app.put('/playlist/:id', (req, res) => {
   connection.query('SELECT * FROM sounds', (error, results, fields) => {
     if (error) throw error;
     res.send(results);
@@ -61,13 +78,14 @@ app.put('/playlist/{playlistId}', (req, res) => {
 });
 
 // DELETE
-app.delete('/playlist/{playlistId}', (req, res) => {
-  connection.query('SELECT * FROM sounds', (error, results, fields) => {
+app.delete('/playlist/:id', (req, res) => {
+  connection.query('DELETE FROM playlist_configuration WHERE id_configuration = ' + req.params.id, (error, results, fields) => {
     if (error) throw error;
     res.send(results);
     console.log("Datos: \t" + results);
   });
 });
+
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
@@ -81,55 +99,3 @@ app.get("*", (req, res) => {
 
 
 module.exports = app;
-
-// Local Database
-
-// const mysql = require('mysql');
-
-// const connection = mysql.createConnection({
-//   host     : 'localhost',
-//   user     : 'root',
-//   password : '',
-//   database : 'minireto'
-// });
-
-
-// ejemplo segundo endpoint
-// app.get('/getCrickets', (req, res) => {
-//     connection.query('SELECT * FROM sounds WHERE sound_id = 4', (error, results, fields) => {
-//         if (error) throw error;
-//         res.send(results);
-//     });
-// });
-
-// module.exports = connection;
-
-/*
-
-const PORT = process.env.PORT || 3001;
-
-const app = express();
-
-app.get('/api/hello', (req,res) => {
-    res.json({ message: "Hello world!" });
-});
-
-const fs = require("fs");
-
-app.get("/api/sounds", async(req, res) => {
-    fs.readFile(__dirname + "/" + "sounds.json", "utf8", (err, data) => {
-        console.log(data);
-        res.end(data);
-    });
-});
-
-app.use (bodyParser.json());
-
-app.post("/api/sounds", (req, res) => {
-    console.log("El cuerpo de la peticion: ", req.body); 
-    res.sendStatus(200);
-});
-
-app.listen(PORT, () => {
-    console.log(`Server listening on ${PORT}`);
-});*/
