@@ -69,17 +69,17 @@ app.delete('/playlist/{playlistId}', (req, res) => {
     console.log("Datos: \t" + results);
   });
 });
-
-app.use(express.static(path.resolve("front-end/build")));
-// Todas las peticiones GET que no manejamos ahora regresarán nuestra React App
-// Agrega esto antes del “app.listen”
-app.get("*", (req, res) => {
-    res.sendFile(path.resolve("front-end/build", "index.html"));
-});
-
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
+
+app.use(express.static(path.resolve("client/build")));
+// Todas las peticiones GET que no manejamos ahora regresarán nuestra React App
+// Agrega esto antes del “app.listen”
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve("client/build", "index.html"));
+});
+
 
 module.exports = app;
 
