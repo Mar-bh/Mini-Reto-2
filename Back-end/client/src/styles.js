@@ -42,7 +42,7 @@ function App() {
     <div className = "main">
       <div className = "fatherContainer">
         <div className = "Title">
-          <h1>OMG</h1>
+          <h1>Working on</h1>
         </div>
         <div className = "ThemeWindow">
           <div className="container">
