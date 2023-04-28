@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     fetch('/datos')
-      .then(response => console.log (response))//.json
+      .then(response => response.json())
       .then(data => setDatos(data))
       .catch(error => console.error(error));
 

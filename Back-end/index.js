@@ -1,16 +1,20 @@
+const bodyParser = require("body-parser");
 const express = require("express");
-const app = express();
-const cors = require("cors");
-app.use(cors());
 
 require("dotenv").config();
 const mysql = require("mysql2");
 
 const DB = process.env.DATABASE_URL;
 const connection = mysql.createConnection(DB);
-const PORT = process.env.PORT || 3001;
 
-const bodyParser = require("body-parser");
+connection.connect(function (err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
+
+const PORT = 3030;
+const app = express();
+const path = require("path");
 
 app.use(bodyParser.json());
 
@@ -34,5 +38,5 @@ app.get("*", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
+  console.log(`Server listening on ${PORT}`);
 });

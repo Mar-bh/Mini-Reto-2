@@ -12,7 +12,7 @@
     "web-vitals": "^3.3.1",
     "node-sass": "^8.0.0"
   },
-  "proxy": "https://mini-reto-2-psi.vercel.app/",
+  "proxy": "http://localhost:3030",
 
   "scripts": {
     "start": "react-scripts start",
