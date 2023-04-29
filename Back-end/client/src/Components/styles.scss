@@ -99,6 +99,30 @@
         }
     }
 
+    .buttonPlaylist {
+        background-color: $button-color;
+        border: none;
+        color: rgb(0, 0, 0);
+        padding: 10px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 3%;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        border-radius : 10%;
+        border: solid white;
+
+        &:hover {
+            background-color: $button-hover-color;
+            text-decoration: $text-hover-color;
+            opacity: $oppacity;
+            border: solid white;
+
+        }
+    }
+
     .buttonSound {
         background-color: $button-color;
         border: none;
