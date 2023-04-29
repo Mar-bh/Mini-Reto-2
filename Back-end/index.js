@@ -9,6 +9,7 @@ const connection = mysql.createConnection(DB);
 
 connection.connect(function (err) {
   if (err) throw err;
+  console.log("Connected to database");
 });
 
 const PORT = 3030;
@@ -18,25 +19,66 @@ const path = require("path");
 app.use(bodyParser.json());
 
 // GET
-app.get("/datos", (req, res) => {
-  connection.connect(function (err) {
-    if (err) throw err;
-    connection.query("SELECT * FROM sounds", (error, results, fields) => {
-      if (error) throw error;
-      res.send(results);
-    });
+// app.get("/datos", (req, res) => {
+//   connection.connect(function (err) {
+//     if (err) throw err;
+//     connection.query("SELECT * FROM sounds", (error, results, fields) => {
+//       if (error) throw error;
+//       res.send(results);
+//     });
+//   });
+// });
+
+
+// GET FOREST SOUNDS
+app.get('/datosForest', (req, res) => {
+  var query = "SELECT * FROM sounds WHERE sound_id BETWEEN 1 AND 6";
+  connection.query(query, (error, results, fields) => {
+    if (error) throw error;
+    res.send(results);
+    console.log("Datos: \t" + results);
   });
 });
 
+// GET SEA SOUNDS
+app.get('/datosForest', (req, res) => {
+  var query = "SELECT * FROM sounds WHERE sound_id BETWEEN 18 AND 23";
+  connection.query(query, (error, results, fields) => {
+    if (error) throw error;
+    res.send(results);
+    console.log("Datos: \t" + results);
+  });
+});
 
+// GET COFFEE SOUNDS
+app.get('/datosForest', (req, res) => {
+  var query = "SELECT * FROM sounds WHERE sound_id BETWEEN 12 AND 17";
+  connection.query(query, (error, results, fields) => {
+    if (error) throw error;
+    res.send(results);
+    console.log("Datos: \t" + results);
+  });
+});
+
+// GET LIBRARY SOUNDS
+app.get('/datosForest', (req, res) => {
+  var query = "SELECT * FROM sounds WHERE sound_id BETWEEN 7 AND 11";
+  connection.query(query, (error, results, fields) => {
+    if (error) throw error;
+    res.send(results);
+    console.log("Datos: \t" + results);
+  });
+});
 
 // GET
 app.get('/datos', (req, res) => {
   connection.query('SELECT * FROM sounds', (error, results, fields) => {
     if (error) throw error;
     res.send(results);
+    console.log("Datos: \t" + results);
   });
 });
+
 
 app.get('/playlist', (req, res) => {
   connection.query('SELECT * FROM playlist_configuration', (error, results, fields) => {

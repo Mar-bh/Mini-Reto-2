@@ -1,11 +1,15 @@
 //  import './App.css';
 // import Window from './Components/styles.scss';
 import React from "react";
-import Window from './Views/LandingPage';
+import Main from './Components/LandingPage';
+import Landing from "./Components/LandingPage";
 
 function App() {
   return (
-    <Window/>
+    <div className="App">
+      <Main/>
+      {/* <Landing/> */}
+    </div>
   )
 }
 

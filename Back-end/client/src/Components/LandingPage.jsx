@@ -1,11 +1,17 @@
+import SoundWindow from "./styles";
+import SoundsConfig from "./VolumeButton";
+import ThemeWindow from "./ThemesWindow";
+
 import React, { useState, useEffect } from 'react';
 import './styles.scss';
 
-function SoundWindow() {
+function Landing() {
 
   //cricketsSounds,
   //const [data, setDatos] = useState([]);
   const [data, setDatos] = useState([]);
+  const [dataForest, setDatosForest] = useState([]);
+  let [temp, setTemp] = useState([]);
   // const [cricketsSounds, setCrickets] = useState([]);
   const [text, setText] = useState('Initial text');
 
@@ -19,8 +25,19 @@ function SoundWindow() {
       .then(data => setDatos(data))
       .catch(error => console.error(error));
 
+    fetch('/datosForest')
+      .then(response => response.json())
+      .then(dataForest => setDatosForest(dataForest))
+      .catch(error => console.error(error));
     }, []);
     
+    useEffect(() => {
+      if (dataForest) {
+        setTemp(dataForest);
+        console.log("TEMP: ", temp);
+      }
+    }, [dataForest]);
+
   return (
   <div className = "background">
     <div className = "main">
@@ -62,10 +79,14 @@ function SoundWindow() {
                   }}
               >Playlist</button>
             </div>
+{/* ---------------------------------------------------------------- */}
             <button className="button"
               onClick={() => {
-                  console.log("Datos: ", data);
+                  console.log("Datos: ", dataForest);
+                  console.log("FOREST");
+                  console.log("TEMP: ", temp);
                 }}
+
             >Forest</button>
             <button className="button"
               onClick={() => {
@@ -80,24 +101,30 @@ function SoundWindow() {
             <button className="button"
               onClick={() => {
                   console.log("Datos: ", data);
+                  console.log("COFFEE");
                 }}
             >Coffee Shop</button>
-
-
           </div>
+
+
           <div className = "volume">
             <div className = "col">
               <button className="sound"onClick={() => {
                       console.log("Volumen: ");
                     }}
               >V</button>
+
+              {/* FOREST */}
               <button className="buttonSound"
-                  onClick={() => {
-                      console.log("Crickets sound: ", data[3]);
-                      handleClick(data[3].sound_name);
-                      // console.log("Output: ", output);
-                    }}
-              >Crickets</button>
+                onClick={() => {
+                    temp = dataForest;
+                    console.log(temp[0].sound_name + "sounds", temp[0]);
+                    handleClick(temp[0].sound_name);
+                    // console.log("Output: ", output);
+                  }}
+                >{temp[0].sound_name}</button>
+                {/* >{temp[0].sound_name ? <p>Sound name: {temp[0].sound_name}</p> : <p>No sound name available</p>}</button> */}
+
               <button className="play"onClick={() => {
                       console.log("Play: ");
                     }}
@@ -179,7 +206,8 @@ function SoundWindow() {
             </div>
               <br/>
               <p>Output: {text}</p>
-          </div>  
+          </div>   
+
         </div>         
       </div>
     </div>
@@ -187,20 +215,53 @@ function SoundWindow() {
   );
 }
 
-export default SoundWindow;
+export default Landing;
 
-// fetch('/getCrickets')
-//   .then(response => response.json())
-//   .then(cricketsSounds => console.log(cricketsSounds))
-//   .catch(error => console.error(error));
 
-// {/* <Button
-// className="button"
-// variant="outlined"
-// color="primary"
-// onClick={() => {
-//     // Acción a realizar al hacer clic en el botón
-// }}
-// >
-// {/* <PlayArrowIcon /> */}
-// {/* </Button> */} 
+// {/* // import React from "react";
+// // // import Table from "../Components/Table";
+
+// // // import { makeStyles } from "@mui/styles";
+// // // import { Box } from "@mui/material";
+
+// // const useStyles = makeStyles((theme) => ({ */}
+// {/* //   container: { */}
+// {/* //     padding: 80
+//   },
+// }));
+
+// function Configuration() { }
+
+//     const classes = useStyles()
+//   return (
+
+//     <Box className={classes.container}>
+//         <Table/>
+//     </Box>
+//   );
+// }
+
+// export default Configuration;
+
+
+
+// import React, { useState } from "react";
+// import VolumeButton from "./VolumeButton";
+
+// const SoundsConfig = () => {
+
+//   const [volume, setVolume] = useState(50);
+
+//   const handleVolumeChange = () => {
+//     const newVolume = volume === 0 ? 100 : 0;
+//     setVolume(newVolume);
+//   };
+
+//   return (
+//     <div>
+//       <VolumeButton volume={volume} onClick={handleVolumeChange} />
+//     </div>
+//   );
+// };
+
+// export default SoundsConfig;*/}
