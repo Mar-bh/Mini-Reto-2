@@ -36,37 +36,37 @@ app.get('/datosForest', (req, res) => {
   connection.query(query, (error, results, fields) => {
     if (error) throw error;
     res.send(results);
-    console.log("Datos: \t" + results);
+    // console.log("Datos: \t" + results);
   });
 });
 
 // GET SEA SOUNDS
-app.get('/datosForest', (req, res) => {
-  var query = "SELECT * FROM sounds WHERE sound_id BETWEEN 18 AND 23";
+app.get('/datosSea', (req, res) => {
+  var query = "SELECT * FROM sounds WHERE sound_id BETWEEN 19 AND 24";
   connection.query(query, (error, results, fields) => {
     if (error) throw error;
     res.send(results);
-    console.log("Datos: \t" + results);
+    // console.log("Datos: \t" + results);
   });
 });
 
 // GET COFFEE SOUNDS
-app.get('/datosForest', (req, res) => {
-  var query = "SELECT * FROM sounds WHERE sound_id BETWEEN 12 AND 17";
+app.get('/datosCoffee', (req, res) => {
+  var query = "SELECT * FROM sounds WHERE sound_id BETWEEN 13 AND 18";
   connection.query(query, (error, results, fields) => {
     if (error) throw error;
     res.send(results);
-    console.log("Datos: \t" + results);
+    // console.log("Datos: \t" + results);
   });
 });
 
 // GET LIBRARY SOUNDS
-app.get('/datosForest', (req, res) => {
-  var query = "SELECT * FROM sounds WHERE sound_id BETWEEN 7 AND 11";
+app.get('/datosLibrary', (req, res) => {
+  var query = "SELECT * FROM sounds WHERE sound_id BETWEEN 7 AND 12";
   connection.query(query, (error, results, fields) => {
     if (error) throw error;
     res.send(results);
-    console.log("Datos: \t" + results);
+    // console.log("Datos: \t" + results);
   });
 });
 
@@ -75,7 +75,7 @@ app.get('/datos', (req, res) => {
   connection.query('SELECT * FROM sounds', (error, results, fields) => {
     if (error) throw error;
     res.send(results);
-    console.log("Datos: \t" + results);
+    // console.log("Datos: \t" + results);
   });
 });
 
@@ -84,7 +84,7 @@ app.get('/playlist', (req, res) => {
   connection.query('SELECT * FROM playlist_configuration', (error, results, fields) => {
     if (error) throw error;
     res.send(results);
-    console.log("Playlists: \t" + results);
+    // console.log("Playlists: \t" + results);
   });
 });
 
@@ -92,7 +92,7 @@ app.get('/theme', (req,res) => {
   connection.query("SELECT * FROM playlist JOIN playlist_sounds ON playlist.playlist_id = playlist_sounds.playlist_id"  , (error, results, fields) => {
     if (error) throw error;
     res.send(results);
-    console.log("Playlists: \t" + results);
+    // console.log("Playlists: \t" + results);
   });
 })
 
@@ -100,7 +100,7 @@ app.get('/theme/:id', (req,res) => {
   connection.query("SELECT * FROM playlist JOIN playlist_sounds ON playlist.playlist_id = playlist_sounds.playlist_id WHERE playlist.playlist_id="+ req.params.id , (error, results, fields) => {
     if (error) throw error;
     res.send(results);
-    console.log("Playlists: \t" + results);
+    // console.log("Playlists: \t" + results);
   });
 })
 
@@ -108,7 +108,7 @@ app.get('/playlist/:id', (req, res) => {
   connection.query('SELECT * FROM playlist_configuration WHERE id_configuration  = ' + req.params.id, (error, results, fields) => {
     if (error) throw error;
     res.send(results);
-    console.log("Playlist: \t" + results + "Id: \t" + req.params.id);
+    // console.log("Playlist: \t" + results + "Id: \t" + req.params.id);
   });
 });
 
@@ -117,7 +117,7 @@ app.post('/playlist', (req, res) => {
   connection.query('SELECT * FROM sounds', (error, results, fields) => {
     if (error) throw error;
     res.send(results);
-    console.log("Datos: \t" + results);
+    // console.log("Datos: \t" + results);
   });
 });
 
@@ -126,7 +126,7 @@ app.put('/playlist/:id', (req, res) => {
   connection.query('SELECT * FROM sounds', (error, results, fields) => {
     if (error) throw error;
     res.send(results);
-    console.log("Datos: \t" + results);
+    // console.log("Datos: \t" + results);
   });
 });
 
@@ -135,7 +135,7 @@ app.delete('/playlist/:id', (req, res) => {
   connection.query('DELETE FROM playlist_configuration WHERE id_configuration = ' + req.params.id, (error, results, fields) => {
     if (error) throw error;
     res.send(results);
-    console.log("Datos: \t" + results);
+    // console.log("Datos: \t" + results);
   });
 });
 
