@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
 function Sounds() {
+  const [data, setData] = useState([]); //useState([""]);
   const [previewUrl, setPreviewUrl] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
   const [audio, setAudio] = useState(null);
   const [volume, setVolume] = useState(1);
+   
+  useEffect(() => {
+    fetch("/theme/1")
+      .then((res) => res.json())
+      .then((Data) => setData(Data))
+      .catch((err) => console.log(err));
+  }, []);
   
+  console.log(data);
   const getSoundPreview = async () => {
     const soundId = "1234"; // Replace with the ID of the sound you want to get the preview for
     const apiKey = "49SUgyFMF5BUbPUEOpunCm4FsSmtCaasFuq0qm3i"; // Replace with your actual API key
