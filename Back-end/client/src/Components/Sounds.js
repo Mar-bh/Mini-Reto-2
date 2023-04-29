@@ -3,7 +3,8 @@ import React, { useState } from "react";
 
 function Sounds() {
   const [previewUrl, setPreviewUrl] = useState("");
-  const [downloadUrl, setDownloadUrl] = useState("");	
+  const [downloadUrl, setDownloadUrl] = useState("");
+  const [audio, setAudio] = useState(null); // Add state for the audio element	
   
   const getSoundPreview = async () => {
     const soundId = "1234"; // Replace with the ID of the sound you want to get the preview for
@@ -17,29 +18,33 @@ function Sounds() {
     console.log(data);
     const previewUrl = data.previews["preview-hq-mp3"];
     const downloadUrl = data.download;
+    console.log(downloadUrl);
     setPreviewUrl(previewUrl);
     setDownloadUrl(downloadUrl);
   };
 
   const playSound = () => {
     console.log(previewUrl);
-    const audio = new Audio(previewUrl);
-    console.log(audio);
-    audio.play();
+    const newAudio = new Audio(previewUrl);
+    newAudio.loop = true;
+    console.log(newAudio);
+    setAudio(newAudio); // Save the audio element to state
+    newAudio.play();
   };
 
-    const download = () => {
-    console.log(downloadUrl);
-    const audio = new Audio(downloadUrl);
-    console.log(audio);
-    audio.play();
-    };
+  const stopSound = () => {
+    if (audio) {
+      audio.pause(); // Pause the audio
+      audio.currentTime = 0; // Reset the playback position to the beginning
+      setAudio(null); // Remove the audio element from state
+    }
+  };
 
   return (
     <div>
     <button onClick={getSoundPreview}>Get sound preview</button>
     <button onClick={playSound}>Play sound</button>
-    <button onClick={download}>Download sound</button>
+    <button onClick={stopSound}>Stop sound</button>
   </div>
   );
 }
