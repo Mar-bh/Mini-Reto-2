@@ -5,6 +5,7 @@ function Sounds() {
   const [previewUrl, setPreviewUrl] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
   const [audio, setAudio] = useState(null);
+  const [volume, setVolume] = useState(1);
   
   const getSoundPreview = async () => {
     const soundId = "1234"; // Replace with the ID of the sound you want to get the preview for
@@ -13,7 +14,7 @@ function Sounds() {
       headers: {
         Authorization: `Token ${apiKey}`
       }
-});
+      });
     const data = await response.json();
     console.log(data);
     const previewUrl = data.previews["preview-hq-mp3"];
@@ -38,10 +39,17 @@ function Sounds() {
     }
   };
 
+  const handleVolumeChange = (event) => {
+    const value = parseFloat(event.target.value);
+    audio.volume = value;
+    setVolume(value);
+  };
+
   return (
     <div>
     <button onClick={getSoundPreview}>Get sound preview</button>
     <button onClick={handlePlay}>{isPlaying ? 'Stop sound' : 'Play sound'}</button>
+    <input type="range" min="0" max="1" step="0.1" value={volume} onChange={handleVolumeChange} />
   </div>
   );
 }
