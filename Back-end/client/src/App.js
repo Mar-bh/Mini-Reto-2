@@ -3,8 +3,8 @@
  import './styles.scss';
  import React from "react";
  import Header from './Components/Header';
+ import SoundsConfig from './Views/LandingPage';
  import Sounds from './Components/Sounds';
-
 
 function App() {
 

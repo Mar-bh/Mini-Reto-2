@@ -9,7 +9,7 @@ function Sounds() {
   const [volume, setVolume] = useState(1);
    
   useEffect(() => {
-    fetch("/theme/1")
+    fetch("/theme/")
       .then((res) => res.json())
       .then((Data) => setData(Data))
       .catch((err) => console.log(err));
