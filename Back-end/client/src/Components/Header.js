@@ -1,7 +1,11 @@
-import React from "react";
+import '../index.css';
 
-function Header() {
-    return <h1>Welcome to my app</h1>;
-  }
+function App() {
+  return (
+    <div className="container">
+      <h1 className="title">Mi Página Web en React con Sass</h1>
+    </div>
+  );
+}
 
-export default Header;
+export default App;
