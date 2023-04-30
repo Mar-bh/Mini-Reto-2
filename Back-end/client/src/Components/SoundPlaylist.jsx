@@ -7,6 +7,12 @@ function SoundPlaylist() {
     const [selectedTheme, setSelectedTheme] = useState(null); // add state for the selected theme
     const [sounds, setSounds] = useState([]);
     const [buttonTexts, setButtonTexts] = useState(null);
+    const [volume, setVolume] = useState(1);
+    
+    const [previewUrl, setPreviewUrl] = useState("");
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [audio, setAudio] = useState(null);
+
 
     useEffect(() => {
      fetch("/theme")
@@ -69,19 +75,30 @@ function SoundPlaylist() {
         ));
       };
 
+      const handleVolumeChange = (event) => {
+        const value = parseFloat(event.target.value);
+        audio.volume = value;
+        setVolume(value);
+      };
+    
+
       const renderSoundButtons = () => {
         if (buttonTexts === null) {
           return null;
         }
         return buttonTexts.map((text, index) => (
-          <button
+          <div>
+            <button
             key={index}
             className="button"
             onClick={() => handleButtonClick(index)}
           >
             {text}
           </button>
+          <input type="range" min="0" max="1" step="0.1" value={volume} onChange={handleVolumeChange} />
+          </div>
         ));
+        
       };
 
     return (
