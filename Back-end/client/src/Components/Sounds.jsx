@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./styles.scss";
 
-const Sounds = ({someData}) => {
+const Sounds = ({someData, sendDatos}) => {
   
   const [data, setData] = useState([]); //useState([""]);
   const [previewUrl, setPreviewUrl] = useState("");
@@ -60,8 +60,13 @@ const Sounds = ({someData}) => {
     // console.log(value);
   };
 
+  function manejarCambio(e) {
+    sendDatos(e.target.value);
+  }
+
   return (
     <div>
+    <input type="text" onChange={manejarCambio} />
     {/* <button onClick={getSoundPreview}>Get sound preview</button> */}
     <button className="sound" onClick={handlePlay}>{isPlaying ? '||' : '>'}</button>
     <input type="range" min="0" max="1" step="0.1" value={volume} onChange={handleVolumeChange} />

@@ -31,7 +31,7 @@ function Landing() {
 
   const configuration = {
     name: '', 
-    theme: '', 
+    theme: 1, 
     first_sound: 0,
     first_sound_volume: 0,
     second_sound: 0,
@@ -44,6 +44,12 @@ function Landing() {
     fifth_sound_volume: 0,
     sixth_sound: 0,
   };
+
+  const [informacion, setInformacion] = useState('');
+
+  function manejarInformacion(datos) {
+    setInformacion(datos);
+  }
 
   function handleClick(data) {
     setText(data);
@@ -101,7 +107,6 @@ function Landing() {
     
   }, []);
   
-
   useEffect(() => {
     console.log("DATA: ", data);
     console.log("DATAFOREST: ", dataForest);
@@ -278,6 +283,7 @@ function Landing() {
               )}
 
               <div className = "volume">
+
                 <div className = "row">
 
                     {/* FOREST */}
@@ -306,14 +312,16 @@ function Landing() {
 
                 <div className = "row">
                   <div className="configuration">
-                    <Sounds someData={temp[0]} />
+                    <p>Informacion del hijo: {informacion}</p>
+                    <Sounds someData={temp[0]} sendDatos={manejarInformacion}/>
+                    
                   </div>  
-                  <div className="configuration">             
+                  {/* <div className="configuration">             
                     <Sounds someData={temp[1]} />
-                  </div>
+                  </div> */}
                 </div>
 
-                <div className = "row">
+                {/* <div className = "row">
 
                     <button className="buttonSound"
                       onClick={() => {
@@ -377,11 +385,12 @@ function Landing() {
                   <div className="configuration">             
                     <Sounds someData={temp[5]} />
                   </div>
-                </div>
+                </div> */}
 
               </div>
 
               {showPlaylist && ( 
+
                 <div className = "PlaylistOptions">
                   <button className="button"
                     onClick={() => {
