@@ -160,7 +160,7 @@ function Landing() {
                         handleClickbtn4(temp[3].sound_name);
                         handleClickbtn5(temp[4].sound_name);
                         handleClickbtn6(temp[5].sound_name);
-                        console.log("Datos Bosque: ", dataForest);
+                        console.log("Datos Bosque: ", temp);
                         // console.log("FOREST");
                         // console.log("TEMP: ", temp);
                       }}
@@ -218,7 +218,7 @@ function Landing() {
                         handleClickbtn4(temp[3].sound_name);
                         handleClickbtn5(temp[4].sound_name);
                         handleClickbtn6(temp[5].sound_name);
-                        console.log("Datos Bosque: ", dataForest);
+                        console.log("Datos Bosque: ", temp);
                       }}
                   >Monday</button>
 
@@ -402,8 +402,32 @@ function Landing() {
                 </div>
               </div>
 
-                <br/>
-                <p>Output: {text}</p>
+              <div className = "PlaylistOptions">
+                <button className="button"
+                    onClick={() => {
+                        temp = dataForest;
+                        console.log("random data:", temp);
+                        console.log("Save");
+                      }}
+                  >Save</button>
+
+                  <button className="button"
+                    onClick={() => {
+                        temp = dataForest;
+                        console.log("random data:", temp);
+                        console.log("Edit");
+                      }}
+                  >Edit</button>
+
+                  <button className="button"
+                    onClick={() => {
+                        temp = dataForest;
+                        console.log("random data:", temp);
+                        console.log("Delete");
+                      }}
+                  >Delete</button>
+              </div>
+
             </div>   
 
           </div>         

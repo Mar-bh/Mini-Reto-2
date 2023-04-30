@@ -39,13 +39,13 @@
         border-radius: 3.5%;
         background-color: rgba(255, 255, 255, 0.555);
         width: 40%;
-        height: 45vh;
+        height: 48vh;
     }
 
     .ThemeWindow2 {
         border-radius: 3.5%;
         background-color: rgba(255, 255, 255, 0.555);
-        height: 45vh;
+        height: 48vh;
     }
 
     .Container{
@@ -97,6 +97,16 @@
             border: solid white;
 
         }
+    }
+
+    .Options {
+        text-align: justify;
+        margin-left: 5%;
+    }
+
+    .PlaylistOptions {
+        text-align: justify;
+        margin-left: 5%;
     }
 
     .buttonPlaylist {
