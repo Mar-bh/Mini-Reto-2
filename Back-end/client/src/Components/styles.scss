@@ -163,6 +163,12 @@
         flex: 1;
     }
 
+    .configuration{
+        width : 50%;
+        // flex: 1;
+        display: inline-block;
+    }
+
     .sound{
         background-color: $button-color;
         border: none;

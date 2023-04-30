@@ -27,14 +27,11 @@ function Landing() {
   const [showTheme, setShowTheme] = useState(true);
   const [showPlaylist, setShowPlaylist] = useState(false);
 
-  // var sendInfo;
-
   function handleClick(data) {
     setText(data);
   }
 
   function handleClickbtn1(data, info) {
-    // sendInfo = info;
     setTextbtn1(data);
   }
 
@@ -283,7 +280,7 @@ function Landing() {
               )}
 
               <div className = "volume">
-                <div className = "col">
+                <div className = "row">
                     <button className="sound"onClick={() => {
                             console.log("Volumen: ");
                           }}
@@ -299,7 +296,7 @@ function Landing() {
                         }}
                         // >{1 ? <p>Sound name: {temp[0].sound_name}</p> : <p>No sound name available</p>}</button>
                         // >1</button>
-                      >{textbtn1}</button> 
+                    >{textbtn1}</button> 
 
                     <button className="play"onClick={() => {
                             console.log("Play: ");
@@ -325,7 +322,17 @@ function Landing() {
                           }}
                     >II</button>
                 </div>
-                <div className = "col">
+
+                <div className = "row">
+                  <div className="configuration">
+                    <Sounds someData={temp[0]} />
+                  </div>  
+                  <div className="configuration">             
+                    <Sounds someData={temp[1]} />
+                  </div>
+                </div>
+
+                <div className = "row">
                     <button className="sound"onClick={() => {
                             console.log("Volumen: ");
                           }}
@@ -365,7 +372,17 @@ function Landing() {
                           }}
                     >II</button>
                 </div>
-                <div className = "col">
+                
+                <div className = "row">
+                  <div className="configuration">
+                    <Sounds someData={temp[2]} />
+                  </div>  
+                  <div className="configuration">             
+                    <Sounds someData={temp[3]} />
+                  </div>
+                </div>
+
+                <div className = "row">
                     <button className="sound"onClick={() => {
                             console.log("Volumen: ");
                           }}
@@ -405,6 +422,16 @@ function Landing() {
                           }}
                     >II</button>
                 </div>
+                
+                <div className = "row">
+                  <div className="configuration">
+                    <Sounds someData={temp[4]} />
+                  </div>  
+                  <div className="configuration">             
+                    <Sounds someData={temp[5]} />
+                  </div>
+                </div>
+
               </div>
 
               <div className = "PlaylistOptions">
@@ -434,7 +461,6 @@ function Landing() {
               </div>
 
             </div>   
-              <Sounds someData={temp[0]} />
           </div>         
         </div>
       </div>
