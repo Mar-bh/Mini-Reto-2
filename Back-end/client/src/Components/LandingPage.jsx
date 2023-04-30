@@ -32,17 +32,17 @@ function Landing() {
   const configuration = {
     name: '', 
     theme: '', 
-    first_sound: int,
-    first_sound_volume: int,
-    second_sound: int,
-    second_sound_volume: int,
-    third_sound: int,
-    third_sound_volume: int,
-    fourth_sound: int,
-    fourth_sound_volume: int,
-    fifth_sound: int,
-    fifth_sound_volume: int,
-    sixth_sound: int,
+    first_sound: 0,
+    first_sound_volume: 0,
+    second_sound: 0,
+    second_sound_volume: 0,
+    third_sound: 0,
+    third_sound_volume: 0,
+    fourth_sound: 0,
+    fourth_sound_volume: 0,
+    fifth_sound: 0,
+    fifth_sound_volume: 0,
+    sixth_sound: 0,
   };
 
   function handleClick(data) {
