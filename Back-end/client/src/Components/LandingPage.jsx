@@ -1,7 +1,3 @@
-import SoundWindow from "./styles";
-import SoundsConfig from "./VolumeButton";
-import ThemeWindow from "./ThemesWindow";
-
 import React, { useState, useEffect } from 'react';
 //import './styles.scss';
 

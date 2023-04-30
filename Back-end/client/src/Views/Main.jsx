@@ -10,14 +10,18 @@ function  Main() {
                 <h1>Study Vibes</h1>
           </header>
        </div>
-       <div>
+        <div>
+          <ToDoList />
+
+        </div>
+{/*        <div>
           <div className="left">
             <ToDoList />
           </div>
           <div className="right">
             <SoundPlaylist />
           </div>
-       </div>
+       </div> */}
     </div>
   );
 };
