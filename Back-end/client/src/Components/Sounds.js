@@ -9,24 +9,30 @@ function Sounds() {
   const [volume, setVolume] = useState(1);
    
   useEffect(() => {
-    fetch("/theme/")
+    fetch("/datos")
       .then((res) => res.json())
-      .then((Data) => setData(Data))
+      .then((data) => setData(data))
       .catch((err) => console.log(err));
   }, []);
   
   console.log(data);
-  const getSoundPreview = async () => {
-    const soundId = "1234"; // Replace with the ID of the sound you want to get the preview for
+ 
+
+  const soundSources = data.map(sound => sound.sound_source);
+
+  console.log(soundSources); // ["130692", "130693", "130694"]
+
+  const getSoundPreview = async (sound) => {
+    const soundId = sound; // Replace with the ID of the sound you want to get the preview for
     const apiKey = "49SUgyFMF5BUbPUEOpunCm4FsSmtCaasFuq0qm3i"; // Replace with your actual API key
     const response = await fetch(`https://freesound.org/apiv2/sounds/${soundId}/`, {
       headers: {
         Authorization: `Token ${apiKey}`
       }
       });
-    const data = await response.json();
-    console.log(data);
-    const previewUrl = data.previews["preview-hq-mp3"];
+    const datos = await response.json();
+    console.log(datos);
+    const previewUrl = datos.previews["preview-hq-mp3"];
 
     setPreviewUrl(previewUrl);
   };
@@ -56,7 +62,7 @@ function Sounds() {
 
   return (
     <div>
-    <button onClick={getSoundPreview}>Get sound preview</button>
+    <button onClick={()=> getSoundPreview(soundSources[1])}>Get sound preview</button>
     <button onClick={handlePlay}>{isPlaying ? 'Stop sound' : 'Play sound'}</button>
     <input type="range" min="0" max="1" step="0.1" value={volume} onChange={handleVolumeChange} />
   </div>

@@ -49,7 +49,8 @@ app.get('/playlist', (req, res) => {
 });
 
 app.get('/theme', (req,res) => {
-  connection.query("SELECT * FROM playlist JOIN playlist_sounds ON playlist.playlist_id = playlist_sounds.playlist_id"  , (error, results, fields) => {
+  var query = "SELECT playlist.playlist_id, playlist_name, sounds.sound_id, sound_name, sound_source FROM playlist JOIN playlist_sounds ON playlist.playlist_id = playlist_sounds.playlist_id  JOIN sounds ON sounds.sound_id = playlist_sounds.sound_id"
+  connection.query(query , (error, results, fields) => {
     if (error) throw error;
     res.send(results);
     console.log("Playlists: \t" + results);
@@ -57,7 +58,8 @@ app.get('/theme', (req,res) => {
 })
 
 app.get('/theme/:id', (req,res) => {
-  connection.query("SELECT * FROM playlist JOIN playlist_sounds ON playlist.playlist_id = playlist_sounds.playlist_id WHERE playlist.playlist_id="+ req.params.id , (error, results, fields) => {
+  var query = "SELECT playlist.playlist_id, playlist_name, sounds.sound_id, sound_name, sound_source FROM playlist JOIN playlist_sounds ON playlist.playlist_id = playlist_sounds.playlist_id  JOIN sounds ON sounds.sound_id = playlist_sounds.sound_id WHERE playlist.playlist_id="
+  connection.query(query + req.params.id , (error, results, fields) => {
     if (error) throw error;
     res.send(results);
     console.log("Playlists: \t" + results);
