@@ -1,9 +1,12 @@
 import SoundWindow from "./styles";
 import SoundsConfig from "./VolumeButton";
 import ThemeWindow from "./ThemesWindow";
+// import { Link } from 'react-router-dom';
+// import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import React, { useState, useEffect } from 'react';
 import './styles.scss';
+import Sounds from "./Sounds";
 
 function Landing() {
 
@@ -24,32 +27,34 @@ function Landing() {
   const [showTheme, setShowTheme] = useState(true);
   const [showPlaylist, setShowPlaylist] = useState(false);
 
+  // var sendInfo;
 
   function handleClick(data) {
     setText(data);
   }
 
-  function handleClickbtn1(data) {
+  function handleClickbtn1(data, info) {
+    // sendInfo = info;
     setTextbtn1(data);
   }
 
-  function handleClickbtn2(data) {
+  function handleClickbtn2(data, info) {
     setTextbtn2(data);
   }
 
-  function handleClickbtn3(data) {
+  function handleClickbtn3(data, info) {
     setTextbtn3(data);
   }
 
-  function handleClickbtn4(data) {
+  function handleClickbtn4(data, info) {
     setTextbtn4(data);
   }
 
-  function handleClickbtn5(data) {
+  function handleClickbtn5(data, info) {
     setTextbtn5(data);
   }
 
-  function handleClickbtn6(data) {
+  function handleClickbtn6(data, info) {
     setTextbtn6(data);
   }
   
@@ -88,12 +93,12 @@ function Landing() {
     if (dataForest !== null) {
       temp = dataForest;
       setTemp(dataForest);
-      handleClickbtn1(temp[0].sound_name);
-      handleClickbtn2(temp[1].sound_name);
-      handleClickbtn3(temp[2].sound_name);
-      handleClickbtn4(temp[3].sound_name);
-      handleClickbtn5(temp[4].sound_name);
-      handleClickbtn6(temp[5].sound_name);
+      handleClickbtn1(temp[0].sound_name, temp[0]);
+      handleClickbtn2(temp[1].sound_name, temp[1]);
+      handleClickbtn3(temp[2].sound_name, temp[2]);
+      handleClickbtn4(temp[3].sound_name, temp[3]);
+      handleClickbtn5(temp[4].sound_name, temp[4]);
+      handleClickbtn6(temp[5].sound_name, temp[5]);
       console.log("TEMP: ", temp);
     }
   },[dataForest]);
@@ -309,7 +314,7 @@ function Landing() {
                       onClick={() => {
                           // temp = dataForest;
                           console.log(temp[1].sound_name + "sounds", temp[1]);
-                          handleClick(temp[1].sound_name);
+                          // <Link to={{ pathname: './Sounds', state: {sound} }} />
                           // handleClickbtn2(temp[1].sound_name);
                         }}
                     // >2</button>
@@ -429,7 +434,7 @@ function Landing() {
               </div>
 
             </div>   
-
+              <Sounds someData={temp[0]} />
           </div>         
         </div>
       </div>
