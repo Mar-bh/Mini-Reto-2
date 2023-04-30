@@ -85,7 +85,7 @@ function SoundPlaylist() {
       };
 
     return (
-        <div className="background">
+        <div >
         <div className="main">
           <div className="fatherContainer2">
             <div className="Title">

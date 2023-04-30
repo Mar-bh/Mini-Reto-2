@@ -1,31 +1,26 @@
 import React from "react";
 import ToDoList from "../Components/ToDoList";
 import SoundPlaylist  from "../Components/SoundPlaylist";
+import './styles.scss';
 
 function  Main() {
   return (
-    <div>
-       <div>
-          <header className="head">
-                <h1>Study Vibes</h1>
-          </header>
-       </div>
-        <div>
+   <div className="background">
+     <div className="container">
+      <header>
+        <h1>Study Vibes</h1>
+      </header>
+      <div className="row">
+        <div className="todolist">
           <ToDoList />
-
-        </div>
-        <div>
+      </div>
+      <div className="soundPlaylist">
           <SoundPlaylist />
-        </div>
-{/*        <div>
-          <div className="left">
-            <ToDoList />
-          </div>
-          <div className="right">
-            <SoundPlaylist />
-          </div>
-       </div> */}
+      </div>
     </div>
+  </div>
+
+   </div>
   );
 };
 

@@ -44,24 +44,36 @@ function ToDoList() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleAddTask}>
-        <input type="text" name="taskInput" />
-        <button type="submit">Add Task</button>
-      </form>
-      <ul>
-        {tasks.map((task, index) => (
-          <li
-            key={index}
-            style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
-            onClick={() => handleToggleComplete(index)}
-          >
-            {task.text}
-          </li>
-        ))}
-      </ul>
-      <button onClick={handleRemoveCompleted}>Remove Completed Tasks</button>
-    </div>
+    <div className = "main">
+      <div className = "fatherContainer">
+        <div className = "Title">
+              <h1>To Do List</h1>
+        </div>
+      <div className = "ThemeWindow">
+          <div className="container">
+            <div className = "Options">
+              <form onSubmit={handleAddTask}>
+                <input type="text" name="taskInput" />
+                <button  type="submit">Add Task</button>
+              </form>
+            </div>
+            <ul>
+              {tasks.map((task, index) => (
+                <li
+                  key={index}
+                  style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
+                  onClick={() => handleToggleComplete(index)}
+                >
+                  {task.text}
+                </li>
+              ))}
+            </ul>
+            <button onClick={handleRemoveCompleted}>Remove Completed Tasks</button>
+         </div>
+        </div>
+      </div>  
+     </div>    
+
   );
 }
 
