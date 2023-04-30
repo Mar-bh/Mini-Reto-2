@@ -275,6 +275,8 @@ function Landing() {
                     }}
                   >Friday</button>
 
+
+
                 </div>
               )}
 
@@ -382,8 +384,9 @@ function Landing() {
 
               </div>
 
-              <div className = "PlaylistOptions">
-                <button className="button"
+              {showPlaylist && ( 
+                <div className = "PlaylistOptions">
+                  <button className="button"
                     onClick={() => {
                         temp = dataForest;
                         console.log("random data:", temp);
@@ -406,7 +409,9 @@ function Landing() {
                         console.log("Delete");
                       }}
                   >Delete</button>
-              </div>
+                </div>
+                  
+              )}
 
             </div>   
           </div>         
