@@ -1,15 +1,23 @@
 import React from "react";
-import SoundsConfig from "../Components/VolumeButton";
-import ThemeWindow from "../Components/ThemeWindow";
+import ToDoList from "../Components/ToDoList";
+import SoundPlaylist  from "../Components/SoundPlaylist";
 
-const Main = () => {
+function  Main() {
   return (
     <div>
-      {/* <span>Hola</span> */}
-        {/* <SoundWindow/> */}
-        <SoundsConfig/>
-        <ThemeWindow/>
-        {/* <VolumeButton/> */}
+       <div>
+          <header className="head">
+                <h1>Study Vibes</h1>
+          </header>
+       </div>
+       <div>
+          <div className="left">
+            <ToDoList />
+          </div>
+          <div className="right">
+            <SoundPlaylist />
+          </div>
+       </div>
     </div>
   );
 };
