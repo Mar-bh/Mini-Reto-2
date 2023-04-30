@@ -1,5 +1,7 @@
+
+
 import React, { useState, useEffect } from 'react';
-//import './styles.scss';
+import './styles.scss';
 
 function Landing() {
 
@@ -95,6 +97,7 @@ function Landing() {
 
     return (
     <div className = "background">
+      <div className = "main">
         <div className = "fatherContainer2">
           <div className = "Title">
             <h1>Ambience sounds</h1>
@@ -300,10 +303,12 @@ function Landing() {
           </div>         
         </div>
       </div>
-   
+    </div>
     );
   }
 }
 
 export default Landing;
+
+
 

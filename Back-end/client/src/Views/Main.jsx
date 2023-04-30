@@ -14,6 +14,9 @@ function  Main() {
           <ToDoList />
 
         </div>
+        <div>
+          <SoundPlaylist />
+        </div>
 {/*        <div>
           <div className="left">
             <ToDoList />
