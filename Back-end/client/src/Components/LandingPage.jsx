@@ -95,27 +95,6 @@ function Landing() {
 
     return (
     <div className = "background">
-      <div className = "main">
-        <div className = "fatherContainer">
-          <div className = "Title">
-            <h1>Working on...</h1>
-          </div>
-          <div className = "ThemeWindow">
-            <div className="container">
-              <div className = "Options">
-                <button className="buttonToDo" 
-                  onClick={() => {
-                      console.log("Datos: ", data);
-                    }}
-                >+</button>
-              </div>
-                <br/>
-                <p>Output: {text}</p>
-            </div>  
-          </div>         
-        </div>
-
-
         <div className = "fatherContainer2">
           <div className = "Title">
             <h1>Ambience sounds</h1>
@@ -321,7 +300,7 @@ function Landing() {
           </div>         
         </div>
       </div>
-    </div>
+   
     );
   }
 }
