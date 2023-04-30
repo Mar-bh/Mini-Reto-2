@@ -142,6 +142,7 @@ function Landing() {
                     setShowTheme(true);
                   }}
                 >Theme</button>
+
                 <button className="button"
                   onClick={() => {
                       console.log("Datos: ", data);
@@ -163,8 +164,6 @@ function Landing() {
                         handleClickbtn5(temp[4].sound_name);
                         handleClickbtn6(temp[5].sound_name);
                         console.log("Datos Bosque: ", temp);
-                        // console.log("FOREST");
-                        // console.log("TEMP: ", temp);
                       }}
                   >Forest</button>
 
@@ -281,10 +280,6 @@ function Landing() {
 
               <div className = "volume">
                 <div className = "row">
-                    <button className="sound"onClick={() => {
-                            console.log("Volumen: ");
-                          }}
-                    >V</button>
 
                     {/* FOREST */}
                     <button className="buttonSound"
@@ -298,15 +293,6 @@ function Landing() {
                         // >1</button>
                     >{textbtn1}</button> 
 
-                    <button className="play"onClick={() => {
-                            console.log("Play: ");
-                          }}
-                    >II</button>
-                    <button className="sound"onClick={() => {
-                            console.log("Volumen: ");
-                          }}
-                    >V</button>
-
                     <button className="buttonSound"
                       onClick={() => {
                           // temp = dataForest;
@@ -317,10 +303,6 @@ function Landing() {
                     // >2</button>
                     >{textbtn2}</button>
 
-                    <button className="play"onClick={() => {
-                            console.log("Play: ");
-                          }}
-                    >II</button>
                 </div>
 
                 <div className = "row">
@@ -333,10 +315,6 @@ function Landing() {
                 </div>
 
                 <div className = "row">
-                    <button className="sound"onClick={() => {
-                            console.log("Volumen: ");
-                          }}
-                    >V</button>
 
                     <button className="buttonSound"
                       onClick={() => {
@@ -347,15 +325,6 @@ function Landing() {
                         }}
                     // >3</button>
                     >{textbtn3}</button>
-
-                    <button className="play"onClick={() => {
-                            console.log("Play: ");
-                          }}
-                    >II</button>
-                    <button className="sound"onClick={() => {
-                            console.log("Volumen: ");
-                          }}
-                    >V</button>
                     
                     <button className="buttonSound"
                       onClick={() => {
@@ -367,10 +336,6 @@ function Landing() {
                     // >4</button>
                     >{textbtn4}</button>
 
-                    <button className="play"onClick={() => {
-                            console.log("Play: ");
-                          }}
-                    >II</button>
                 </div>
                 
                 <div className = "row">
@@ -383,10 +348,6 @@ function Landing() {
                 </div>
 
                 <div className = "row">
-                    <button className="sound"onClick={() => {
-                            console.log("Volumen: ");
-                          }}
-                    >V</button>
 
                     <button className="buttonSound"
                       onClick={() => {
@@ -398,15 +359,6 @@ function Landing() {
                     // >5</button>
                     >{textbtn5}</button>
 
-                    <button className="play"onClick={() => {
-                            console.log("Play: ");
-                          }}
-                    >II</button>
-                    <button className="sound"onClick={() => {
-                            console.log("Volumen: ");
-                          }}
-                    >V</button>
-
                     <button className="buttonSound"
                       onClick={() => {
                           // temp = dataForest;
@@ -417,10 +369,6 @@ function Landing() {
                     // >6</button>
                     >{textbtn6}</button>
 
-                    <button className="play"onClick={() => {
-                            console.log("Play: ");
-                          }}
-                    >II</button>
                 </div>
                 
                 <div className = "row">

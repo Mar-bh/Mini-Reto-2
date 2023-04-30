@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./styles.scss";
 // import { useLocation } from 'react-router-dom';
 // import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -18,9 +19,12 @@ const Sounds = ({someData}) => {
       .then((res) => res.json())
       .then((Data) => setData(Data))
       .catch((err) => console.log(err));
+    getSoundPreview();
+    console.log(previewUrl);
+    
   }, []);
 
-  console.log(data);
+  // console.log(data);
   console.log("Sound from landing:  " + someData.sound_name);
   const getSoundPreview = async () => {
     const soundId = someData.sound_source; // Replace with the ID of the sound you want to get the preview for
@@ -31,12 +35,12 @@ const Sounds = ({someData}) => {
       }
       });
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     const previewUrl = data.previews["preview-hq-mp3"];
 
     setPreviewUrl(previewUrl);
   };
-
+  
   const handlePlay = () => {
     if (!audio) {
       const newAudio = new Audio(previewUrl);
@@ -62,8 +66,8 @@ const Sounds = ({someData}) => {
 
   return (
     <div>
-    <button onClick={getSoundPreview}>Get sound preview</button>
-    <button onClick={handlePlay}>{isPlaying ? 'Stop sound' : 'Play sound'}</button>
+    {/* <button onClick={getSoundPreview}>Get sound preview</button> */}
+    <button className="sound" onClick={handlePlay}>{isPlaying ? '||' : '>'}</button>
     <input type="range" min="0" max="1" step="0.1" value={volume} onChange={handleVolumeChange} />
   </div>
   );
