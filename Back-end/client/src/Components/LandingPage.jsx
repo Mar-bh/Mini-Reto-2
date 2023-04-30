@@ -1,9 +1,3 @@
-import SoundWindow from "./styles";
-import SoundsConfig from "./VolumeButton";
-import ThemeWindow from "./ThemesWindow";
-// import { Link } from 'react-router-dom';
-// import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
 import React, { useState, useEffect } from 'react';
 import './styles.scss';
 import Sounds from "./Sounds";
@@ -26,6 +20,30 @@ function Landing() {
 
   const [showTheme, setShowTheme] = useState(true);
   const [showPlaylist, setShowPlaylist] = useState(false);
+
+  const [showP1, setShowP1] = useState(false);
+  const [P1,setP1] = useState('');
+
+  const newPlaylist = () => {
+    console.log('Button clicked!');
+    setP1('Playlist1');
+  }
+
+  const configuration = {
+    name: '', 
+    theme: '', 
+    first_sound: int,
+    first_sound_volume: int,
+    second_sound: int,
+    second_sound_volume: int,
+    third_sound: int,
+    third_sound_volume: int,
+    fourth_sound: int,
+    fourth_sound_volume: int,
+    fifth_sound: int,
+    fifth_sound_volume: int,
+    sixth_sound: int,
+  };
 
   function handleClick(data) {
     setText(data);
@@ -209,56 +227,35 @@ function Landing() {
               )}
 
               {showPlaylist && (
-                <div className = "Playlist">     
-                  <button className="buttonPlaylist"
-                    onClick={() => {
-                        temp = dataForest;
-                        handleClickbtn1(temp[0].sound_name);
-                        handleClickbtn2(temp[1].sound_name);
-                        handleClickbtn3(temp[2].sound_name);
-                        handleClickbtn4(temp[3].sound_name);
-                        handleClickbtn5(temp[4].sound_name);
-                        handleClickbtn6(temp[5].sound_name);
-                        console.log("Datos Bosque: ", temp);
-                      }}
-                  >Monday</button>
-
+                <div className = "Playlist">    
+                
+                  {showP1 && (
+                    <fieldset className="buttonPlaylist"
+                      onClick={() => {
+                          newPlaylist();
+                        }}
+                    
+                    >{P1}</fieldset>
+                  )} 
+{/* 
                   <button className="buttonPlaylist"
                     onClick={() => {
                         temp = dataSea;
-                        handleClickbtn1(temp[0].sound_name);
-                        handleClickbtn2(temp[1].sound_name);
-                        handleClickbtn3(temp[2].sound_name);
-                        handleClickbtn4(temp[3].sound_name);
-                        handleClickbtn5(temp[4].sound_name);
-                        handleClickbtn6(temp[5].sound_name);
-                        console.log("Datos Oceano: ", temp);
+
                       }}
                   >Tuesday</button>
 
                   <button className="buttonPlaylist"
                     onClick={() => {
                         temp = dataLibrary;
-                        handleClickbtn1(temp[0].sound_name);
-                        handleClickbtn2(temp[1].sound_name);
-                        handleClickbtn3(temp[2].sound_name);
-                        handleClickbtn4(temp[3].sound_name);
-                        handleClickbtn5(temp[4].sound_name);
-                        handleClickbtn6(temp[5].sound_name);
-                        console.log("Datos Biblio: ", temp);
+
                       }}
                   >Wednesday</button>
 
                   <button className="buttonPlaylist"
                     onClick={() => {
                       temp = dataCoffee;
-                      handleClickbtn1(temp[0].sound_name);
-                      handleClickbtn2(temp[1].sound_name);
-                      handleClickbtn3(temp[2].sound_name);
-                      handleClickbtn4(temp[3].sound_name);
-                      handleClickbtn5(temp[4].sound_name);
-                      handleClickbtn6(temp[5].sound_name);
-                      console.log("Datos Cafe: ", temp);
+
                     }}
                   >Thursday</button>
 
@@ -273,7 +270,7 @@ function Landing() {
                       handleClickbtn6(temp[5].sound_name);
                       console.log("Datos Cafe: ", temp);
                     }}
-                  >Friday</button>
+                  >Friday</button> */}
 
 
 
@@ -391,6 +388,7 @@ function Landing() {
                         temp = dataForest;
                         console.log("random data:", temp);
                         console.log("Save");
+                        setShowP1(true);
                       }}
                   >Save</button>
 

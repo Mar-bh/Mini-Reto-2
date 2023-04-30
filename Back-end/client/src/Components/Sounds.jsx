@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./styles.scss";
-// import { useLocation } from 'react-router-dom';
-// import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 const Sounds = ({someData}) => {
-
-  // const location = useLocation();
-  // const dataSound = location.state.data;
   
   const [data, setData] = useState([]); //useState([""]);
   const [previewUrl, setPreviewUrl] = useState("");
@@ -62,6 +57,7 @@ const Sounds = ({someData}) => {
     const value = parseFloat(event.target.value);
     audio.volume = value;
     setVolume(value);
+    // console.log(value);
   };
 
   return (
@@ -69,7 +65,7 @@ const Sounds = ({someData}) => {
     {/* <button onClick={getSoundPreview}>Get sound preview</button> */}
     <button className="sound" onClick={handlePlay}>{isPlaying ? '||' : '>'}</button>
     <input type="range" min="0" max="1" step="0.1" value={volume} onChange={handleVolumeChange} />
-  </div>
+    </div>
   );
 }
 
