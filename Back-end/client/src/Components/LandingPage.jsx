@@ -15,32 +15,65 @@ function Landing() {
   const [showP1, setShowP1] = useState(false);
   const [P1,setP1] = useState('');
 
-  // const newPlaylist = () => {
-  //   console.log('Button clicked!');
-  //   setP1('Playlist1');
-  // }
+  const newPlaylist = () => {
+    console.log('Button clicked!');
+    setP1('Playlist1');
+  }
 
-  // const configuration = {
-  //   name: '', 
-  //   theme: 1, 
-  //   first_sound: 0,
-  //   first_sound_volume: 0,
-  //   second_sound: 0,
-  //   second_sound_volume: 0,
-  //   third_sound: 0,
-  //   third_sound_volume: 0,
-  //   fourth_sound: 0,
-  //   fourth_sound_volume: 0,
-  //   fifth_sound: 0,
-  //   fifth_sound_volume: 0,
-  //   sixth_sound: 0,
-  // };
+  function configuration (name, theme, first_sound, first_sound_volume, second_sound, second_sound_volume, third_sound, third_sound_volume, fourth_sound, fourth_sound_volume, fifth_sound, fifth_sound_volume, sixth_sound, sixth_sound_volume) {
+    this.name = name;
+    this.theme= theme; 
+    this.first_sound= first_sound;
+    this.first_sound_volume= first_sound_volume;
+    this.second_sound= second_sound;
+    this.second_sound_volume=  second_sound_volume;
+    this.third_sound= third_sound;
+    this.third_sound_volume= third_sound_volume;
+    this.fourth_sound= fourth_sound;
+    this.fourth_sound_volume= fourth_sound_volume;
+    this.fifth_sound= fifth_sound;
+    this.fifth_sound_volume= fifth_sound_volume;
+    this.sixth_sound=  sixth_sound;
+    this.sixth_sound_volume= sixth_sound_volume;
+  };
 
-  // const [informacion, setInformacion] = useState('');
+  var tempConfig = new configuration();
+  const [informacion, setInformacion] = useState('');
 
-  // function manejarInformacion(datos) {
-  //   setInformacion(datos);
-  // }
+  function manejarInformacion(datos) {
+    tempConfig.name = P1;
+    tempConfig.theme = datos[0]; 
+    switch (datos[1]) {
+      case 1:
+        tempConfig.first_sound = datos[1];
+        tempConfig.first_sound_volume = datos[2];
+        break;
+      case 2:
+        tempConfig.second_sound = datos[1];
+        tempConfig.second_sound_volume = datos[2];
+        break;
+      case 3:
+        tempConfig.third_sound = datos[1];
+        tempConfig.third_sound_volume = datos[2];
+        break;
+      case 4:
+        tempConfig.fourth_sound = datos[1];
+        tempConfig.fourth_sound_volume = datos[2];
+        break;
+      case 5:
+        tempConfig.fifth_sound = datos[1];
+        tempConfig.fifth_sound_volume = datos[2];
+        break;
+      case 6:
+        tempConfig.sixth_sound = datos[1];
+        tempConfig.sixth_sound_volume = datos[2];
+        break;
+      default:
+        break;
+    }
+    setInformacion(tempConfig);
+    console.log(tempConfig);
+  }
   
   useEffect(() => {   
     fetch('/theme/1')
@@ -55,10 +88,15 @@ function Landing() {
     
   }, []);
 
-  const getSoundPreview = async (id) => {
+  const getTheme = async (id) => {
     const response = await fetch(`/theme/${id}`);
     const data = await response.json();
     setTemp(data);
+  };
+
+  const SaveData = async (body) => {
+    const response = await fetch('/playlist',body);
+    const data = await response.json();
   };
     
 
@@ -117,28 +155,28 @@ function Landing() {
                 <div className = "Themes">     
                   <button className="button"
                     onClick={() => {
-                        getSoundPreview(1);
+                        getTheme(1);
                         console.log("Datos Bosque: ", temp);
                       }}
                   >Forest</button>
 
                   <button className="button"
                     onClick={() => {
-                        getSoundPreview(4);
+                        getTheme(4);
                         console.log("Datos Oceano: ", temp);
                       }}
                   >Sea</button>
 
                   <button className="button"
                     onClick={() => {
-                        getSoundPreview(2);
+                        getTheme(2);
                         console.log("Datos Biblio: ", temp);
                       }}
                   >Library</button>
 
                   <button className="button"
                     onClick={() => {
-                      getSoundPreview(3);
+                      getTheme(3);
                       console.log("Datos Cafe: ", temp);
                     }}
                   >Coffee Shop</button>
@@ -151,7 +189,7 @@ function Landing() {
                   {showP1 && (
                     <fieldset className="buttonPlaylist"
                       onClick={() => {
-                          // newPlaylist();
+                          newPlaylist();
                         }}
                     
                     >{P1}</fieldset>
@@ -181,17 +219,19 @@ function Landing() {
 
                 <div className = "row">
                   <div className="configuration">
+                    {/* <Sounds someData={temp[0]}/> */}
                     {/* <p>Informacion del hijo: {informacion}</p> */}
-                    <Sounds someData={temp[0]}/>
-                    {/* <Sounds someData={temp[0]} sendDatos={manejarInformacion}/> */}
+                    {/* console.log("Informacion del hijo: ", informacion); */}
+                    <Sounds someData={temp[0]} sendDatos={manejarInformacion} configInfo={configuration}/>
                   </div>  
 
                   <div className="configuration">             
-                    <Sounds someData={temp[1]} />
+                    <Sounds someData={temp[1]} sendDatos={manejarInformacion} configInfo={configuration}/>
+                    {/* <Sounds someData={temp[1]} /> */}
                   </div>
                 </div>
 
-                <div className = "row">
+                {/* <div className = "row">
 
                     <button className="buttonSound"
                       onClick={() => {
@@ -243,7 +283,7 @@ function Landing() {
                   <div className="configuration">             
                     <Sounds someData={temp[5]} />
                   </div>
-                </div>
+                </div> */}
 
               </div>
 
@@ -252,11 +292,8 @@ function Landing() {
                 <div className = "PlaylistOptions">
                   <button className="button"
                     onClick={() => {
-                        temp = dataForest;
-                        console.log("random data:", temp);
-                        console.log("Save");
-                        setShowP1(true);
-                      }}
+                      SaveData(informacion);
+                    }}
                   >Save</button>
 
                   <button className="button"
@@ -274,6 +311,16 @@ function Landing() {
                         console.log("Delete");
                       }}
                   >Delete</button>
+
+                  <button className="button"
+                    onClick={() => {
+                        temp = dataForest;
+                        console.log("random data:", temp);
+                        console.log("Save");
+                        setShowP1(true);
+                      }}
+                  >New Playlist</button>
+                  
                 </div>
                   
               )}

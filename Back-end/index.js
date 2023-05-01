@@ -76,9 +76,10 @@ app.post('/playlist', (req, res) => {
     fifth_sound,
     fifth_sound_volume,
     sixth_sound,
+    sixth_sound_volume
   } = req.body;
 
-  var query = "INSERT INTO playlist_configuration (name, theme, first_sound, first_sound_volume, second_sound, second_sound_volume, third_sound, third_sound_volume, fourth_sound, fourth_sound_volume, fifth_sound, fifth_sound_volume, sixth_sound) VALUES ('" + name + "', '" + theme + "', '" + first_sound + "', '" + first_sound_volume + "', '" + second_sound + "', '" + second_sound_volume + "', '" + third_sound + "', '" + third_sound_volume + "', '" + fourth_sound + "', '" + fourth_sound_volume + "', '" + fifth_sound + "', '" + fifth_sound_volume + "', '" + sixth_sound + "')";
+  var query = "INSERT INTO playlist_configuration (name, theme, first_sound, first_sound_v, second_sound, second_sound_v, third_sound, third_sound_v, fourth_sound, fourth_sound_v, fifth_sound, fifth_sound_v, sixth_sound, sixth_sound_v) VALUES ('" + name + "', '" + theme + "', '" + first_sound + "', '" + first_sound_volume + "', '" + second_sound + "', '" + second_sound_volume + "', '" + third_sound + "', '" + third_sound_volume + "', '" + fourth_sound + "', '" + fourth_sound_volume + "', '" + fifth_sound + "', '" + fifth_sound_volume + "', '" + sixth_sound + "', '" + sixth_sound_volume + "')";
   connection.query(query, (error, results, fields) => {
     if (error) throw error;
     res.send(results);
