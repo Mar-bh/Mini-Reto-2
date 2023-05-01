@@ -44,7 +44,7 @@ function ToDoList() {
   };
 
   return (
-    <div className = "main">
+   
       <div className = "fatherContainer">
         <div className = "Title">
               <h1>To Do List</h1>
@@ -72,7 +72,7 @@ function ToDoList() {
          </div>
         </div>
       </div>  
-     </div>    
+      
 
   );
 }
