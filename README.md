@@ -28,6 +28,7 @@ Los usuarios de nuestra API serían los desarrolladores de la página web que la
 La documentación de la API interna fue generada con Swagger, se encuentra en el archivo `SwaggerAPI.yaml` y se puede ver como pdf,  para su facil visualización, en el archivo `APISwagger.pdf`. La carpeta client contiene la app en react que se encarga de manejar la interfaz de usuario, esta se conecta a la API en el index.js. 
 
 ##Diagrama de Componentes
+![Diagrama de Componentes]
 
 #Futuras Funciones
 Se está trabajando para implementar un timer tipo pomodoro, para poder generar sesiones de estudio.
