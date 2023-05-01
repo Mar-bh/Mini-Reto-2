@@ -27,6 +27,8 @@ Los usuarios de nuestra API serían los desarrolladores de la página web que la
 
 La documentación de la API interna fue generada con Swagger, se encuentra en el archivo `SwaggerAPI.yaml`. La carpeta client contiene la app en react que se encarga de manejar la interfaz de usuario, esta se conecta a la API en el index.js. 
 
+Enlace de acceso a la documentación de la API: https://app.swaggerhub.com/apis/Mar-bh/study-vibes_api/1.0.11
+
 ## Diagrama de Componentes
 
 
