@@ -24,26 +24,26 @@ function Landing() {
   const [showP1, setShowP1] = useState(false);
   const [P1,setP1] = useState('');
 
-  const newPlaylist = () => {
-    console.log('Button clicked!');
-    setP1('Playlist1');
-  }
+  // const newPlaylist = () => {
+  //   console.log('Button clicked!');
+  //   setP1('Playlist1');
+  // }
 
-  const configuration = {
-    name: '', 
-    theme: 1, 
-    first_sound: 0,
-    first_sound_volume: 0,
-    second_sound: 0,
-    second_sound_volume: 0,
-    third_sound: 0,
-    third_sound_volume: 0,
-    fourth_sound: 0,
-    fourth_sound_volume: 0,
-    fifth_sound: 0,
-    fifth_sound_volume: 0,
-    sixth_sound: 0,
-  };
+  // const configuration = {
+  //   name: '', 
+  //   theme: 1, 
+  //   first_sound: 0,
+  //   first_sound_volume: 0,
+  //   second_sound: 0,
+  //   second_sound_volume: 0,
+  //   third_sound: 0,
+  //   third_sound_volume: 0,
+  //   fourth_sound: 0,
+  //   fourth_sound_volume: 0,
+  //   fifth_sound: 0,
+  //   fifth_sound_volume: 0,
+  //   sixth_sound: 0,
+  // };
 
   const [informacion, setInformacion] = useState('');
 
@@ -55,73 +55,46 @@ function Landing() {
     setText(data);
   }
 
-  function handleClickbtn1(data, info) {
-    setTextbtn1(data);
-  }
-
-  function handleClickbtn2(data, info) {
-    setTextbtn2(data);
-  }
-
-  function handleClickbtn3(data, info) {
-    setTextbtn3(data);
-  }
-
-  function handleClickbtn4(data, info) {
-    setTextbtn4(data);
-  }
-
-  function handleClickbtn5(data, info) {
-    setTextbtn5(data);
-  }
-
-  function handleClickbtn6(data, info) {
-    setTextbtn6(data);
+  function handleClickbtn(data) {
+    setTextbtn1(data[0].sound_name);
+    setTextbtn2(data[1].sound_name);
+    setTextbtn3(data[2].sound_name);
+    setTextbtn4(data[3].sound_name);
+    setTextbtn5(data[4].sound_name);
+    setTextbtn6(data[5].sound_name);
   }
   
   useEffect(() => {   
-    fetch('/datosForest')
+    fetch('/theme/1')
     .then(response => response.json())
-    .then(dataForest => setDatosForest(dataForest))
+    .then(temp => setTemp(temp))
     .catch(error => console.error(error));
     
     fetch('/datos')
     .then(response => response.json())
     .then(data => setDatos(data))
     .catch(error => console.error(error));
-      
-    fetch('/datosSea')
-      .then(response => response.json())
-      .then(dataSea => setDatosSea(dataSea))
-      .catch(error => console.error(error));
-
-    fetch('/datosCoffee')
-      .then(response => response.json())
-      .then(dataCoffee => setDatosCoffee(dataCoffee))
-      .catch(error => console.error(error));
-    
-    fetch('/datosLibrary')
-      .then(response => response.json())
-      .then(dataLibrary => setDatosLibrary(dataLibrary))
-      .catch(error => console.error(error));
     
   }, []);
+
+  const getSoundPreview = async (id) => {
+    const response = await fetch(`/theme/${id}`);
+    const data = await response.json();
+    //console.log("DATA: ", data);
+    setTemp(data);
+    //setPreviewUrl(previewUrl);
+  };
   
-  useEffect(() => {
-    console.log("DATA: ", data);
-    console.log("DATAFOREST: ", dataForest);
-    if (dataForest !== null) {
-      temp = dataForest;
-      setTemp(dataForest);
-      handleClickbtn1(temp[0].sound_name, temp[0]);
-      handleClickbtn2(temp[1].sound_name, temp[1]);
-      handleClickbtn3(temp[2].sound_name, temp[2]);
-      handleClickbtn4(temp[3].sound_name, temp[3]);
-      handleClickbtn5(temp[4].sound_name, temp[4]);
-      handleClickbtn6(temp[5].sound_name, temp[5]);
-      console.log("TEMP: ", temp);
-    }
-  },[dataForest]);
+  // useEffect(() => {
+  //   //console.log("DATA: ", data);
+  //   //console.log("DATAFOREST: ", dataForest);
+  //   if (dataForest !== null) {
+  //     temp = dataForest;
+  //     setTemp(dataForest);
+  //     handleClickbtn(temp);
+  //     //console.log("TEMP: ", temp);
+  //   }
+  // },[dataForest]);
     
 
   if (temp !== null) {
@@ -179,53 +152,37 @@ function Landing() {
                 <div className = "Themes">     
                   <button className="button"
                     onClick={() => {
-                        temp = dataForest;
-                        handleClickbtn1(temp[0].sound_name);
-                        handleClickbtn2(temp[1].sound_name);
-                        handleClickbtn3(temp[2].sound_name);
-                        handleClickbtn4(temp[3].sound_name);
-                        handleClickbtn5(temp[4].sound_name);
-                        handleClickbtn6(temp[5].sound_name);
+                        //temp = dataForest;
+                        handleClickbtn(temp);
+                        getSoundPreview(1);
                         console.log("Datos Bosque: ", temp);
                       }}
                   >Forest</button>
 
                   <button className="button"
                     onClick={() => {
-                        temp = dataSea;
-                        handleClickbtn1(temp[0].sound_name);
-                        handleClickbtn2(temp[1].sound_name);
-                        handleClickbtn3(temp[2].sound_name);
-                        handleClickbtn4(temp[3].sound_name);
-                        handleClickbtn5(temp[4].sound_name);
-                        handleClickbtn6(temp[5].sound_name);
-                        console.log("Datos Oceano: ", temp);
+                        //temp = dataSea;
+                        handleClickbtn(temp);
+                        getSoundPreview(4);
+                        //console.log("Datos Oceano: ", temp);
                       }}
                   >Sea</button>
 
                   <button className="button"
                     onClick={() => {
-                        temp = dataLibrary;
-                        handleClickbtn1(temp[0].sound_name);
-                        handleClickbtn2(temp[1].sound_name);
-                        handleClickbtn3(temp[2].sound_name);
-                        handleClickbtn4(temp[3].sound_name);
-                        handleClickbtn5(temp[4].sound_name);
-                        handleClickbtn6(temp[5].sound_name);
-                        console.log("Datos Biblio: ", temp);
+                        //temp = dataLibrary;
+                        handleClickbtn(temp);
+                        getSoundPreview(2);
+                        //console.log("Datos Biblio: ", temp);
                       }}
                   >Library</button>
 
                   <button className="button"
                     onClick={() => {
-                      temp = dataCoffee;
-                      handleClickbtn1(temp[0].sound_name);
-                      handleClickbtn2(temp[1].sound_name);
-                      handleClickbtn3(temp[2].sound_name);
-                      handleClickbtn4(temp[3].sound_name);
-                      handleClickbtn5(temp[4].sound_name);
-                      handleClickbtn6(temp[5].sound_name);
-                      console.log("Datos Cafe: ", temp);
+                      //temp = dataCoffee;
+                      handleClickbtn(temp);
+                      getSoundPreview(3);
+                      //console.log("Datos Cafe: ", temp);
                     }}
                   >Coffee Shop</button>
                 </div>
@@ -237,7 +194,7 @@ function Landing() {
                   {showP1 && (
                     <fieldset className="buttonPlaylist"
                       onClick={() => {
-                          newPlaylist();
+                          // newPlaylist();
                         }}
                     
                     >{P1}</fieldset>
@@ -290,7 +247,8 @@ function Landing() {
                     <button className="buttonSound"
                       onClick={() => {
                           // temp = dataForest;
-                          console.log(temp[0].sound_name + "sounds", temp[0]);
+                          console.log(temp[0].sound_name + "sounds");
+                          // console.log(temp[0].sound_name + "sounds", temp[0]);
                           handleClick(temp[0].sound_name);
                           // handleClickbtn1(temp[0].sound_name);
                         }}
@@ -301,7 +259,8 @@ function Landing() {
                     <button className="buttonSound"
                       onClick={() => {
                           // temp = dataForest;
-                          console.log(temp[1].sound_name + "sounds", temp[1]);
+                          console.log(temp[1].sound_name + "sounds");
+                          // console.log(temp[1].sound_name + "sounds", temp[1]);
                           // <Link to={{ pathname: './Sounds', state: {sound} }} />
                           // handleClickbtn2(temp[1].sound_name);
                         }}

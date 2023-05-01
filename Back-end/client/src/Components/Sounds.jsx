@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./styles.scss";
 
-const Sounds = ({someData, sendDatos}) => {
+// const Sounds = ({someData, sendDatos}) => {
+  const Sounds = ({someData}) => {
   
   const [data, setData] = useState([]); //useState([""]);
   const [previewUrl, setPreviewUrl] = useState("");
@@ -15,12 +16,12 @@ const Sounds = ({someData, sendDatos}) => {
       .then((Data) => setData(Data))
       .catch((err) => console.log(err));
     getSoundPreview();
-    console.log(previewUrl);
+    //console.log(previewUrl);
     
   }, []);
 
   // console.log(data);
-  console.log("Sound from landing:  " + someData.sound_name);
+  //console.log("Sound from landing:  " + someData.sound_name);
   const getSoundPreview = async () => {
     const soundId = someData.sound_source; // Replace with the ID of the sound you want to get the preview for
     const apiKey = "49SUgyFMF5BUbPUEOpunCm4FsSmtCaasFuq0qm3i"; // Replace with your actual API key
@@ -60,13 +61,13 @@ const Sounds = ({someData, sendDatos}) => {
     // console.log(value);
   };
 
-  function manejarCambio(e) {
-    sendDatos(e.target.value);
-  }
+  // function manejarCambio(e) {
+  //   sendDatos(e.target.value);
+  // }
 
   return (
     <div>
-    <input type="text" onChange={manejarCambio} />
+    {/* <input type="text" onChange={manejarCambio} /> */}
     {/* <button onClick={getSoundPreview}>Get sound preview</button> */}
     <button className="sound" onClick={handlePlay}>{isPlaying ? '||' : '>'}</button>
     <input type="range" min="0" max="1" step="0.1" value={volume} onChange={handleVolumeChange} />
