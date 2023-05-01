@@ -214,7 +214,7 @@ function Landing() {
                   </div>
                 </div>
 
-                {/* <div className = "row">
+                <div className = "row">
 
                     <button className="buttonSound"
                       onClick={() => {
@@ -266,7 +266,7 @@ function Landing() {
                   <div className="configuration">             
                     <Sounds someData={temp[5]} />
                   </div>
-                </div> */}
+                </div>
 
               </div>
 
