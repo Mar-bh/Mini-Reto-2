@@ -6,17 +6,8 @@ function Landing() {
 
   const [data, setDatos] = useState(null);
   const [dataForest, setDatosForest] = useState(null);
-  const [dataSea, setDatosSea] = useState(null);
-  const [dataCoffee, setDatosCoffee] = useState(null);
-  const [dataLibrary, setDatosLibrary] = useState(null);
   let [temp, setTemp] = useState(null);
   const [text, setText] = useState('Initial text');
-  const [textbtn1, setTextbtn1] = useState('btn1');
-  const [textbtn2, setTextbtn2] = useState('btn2');
-  const [textbtn3, setTextbtn3] = useState('btn3');
-  const [textbtn4, setTextbtn4] = useState('btn4');
-  const [textbtn5, setTextbtn5] = useState('btn5');
-  const [textbtn6, setTextbtn6] = useState('btn6');
 
   const [showTheme, setShowTheme] = useState(true);
   const [showPlaylist, setShowPlaylist] = useState(false);
@@ -45,24 +36,11 @@ function Landing() {
   //   sixth_sound: 0,
   // };
 
-  const [informacion, setInformacion] = useState('');
+  // const [informacion, setInformacion] = useState('');
 
-  function manejarInformacion(datos) {
-    setInformacion(datos);
-  }
-
-  function handleClick(data) {
-    setText(data);
-  }
-
-  function handleClickbtn(data) {
-    setTextbtn1(data[0].sound_name);
-    setTextbtn2(data[1].sound_name);
-    setTextbtn3(data[2].sound_name);
-    setTextbtn4(data[3].sound_name);
-    setTextbtn5(data[4].sound_name);
-    setTextbtn6(data[5].sound_name);
-  }
+  // function manejarInformacion(datos) {
+  //   setInformacion(datos);
+  // }
   
   useEffect(() => {   
     fetch('/theme/1')
@@ -80,21 +58,8 @@ function Landing() {
   const getSoundPreview = async (id) => {
     const response = await fetch(`/theme/${id}`);
     const data = await response.json();
-    //console.log("DATA: ", data);
     setTemp(data);
-    //setPreviewUrl(previewUrl);
   };
-  
-  // useEffect(() => {
-  //   //console.log("DATA: ", data);
-  //   //console.log("DATAFOREST: ", dataForest);
-  //   if (dataForest !== null) {
-  //     temp = dataForest;
-  //     setTemp(dataForest);
-  //     handleClickbtn(temp);
-  //     //console.log("TEMP: ", temp);
-  //   }
-  // },[dataForest]);
     
 
   if (temp !== null) {
@@ -152,8 +117,6 @@ function Landing() {
                 <div className = "Themes">     
                   <button className="button"
                     onClick={() => {
-                        //temp = dataForest;
-                        handleClickbtn(temp);
                         getSoundPreview(1);
                         console.log("Datos Bosque: ", temp);
                       }}
@@ -161,28 +124,22 @@ function Landing() {
 
                   <button className="button"
                     onClick={() => {
-                        //temp = dataSea;
-                        handleClickbtn(temp);
                         getSoundPreview(4);
-                        //console.log("Datos Oceano: ", temp);
+                        console.log("Datos Oceano: ", temp);
                       }}
                   >Sea</button>
 
                   <button className="button"
                     onClick={() => {
-                        //temp = dataLibrary;
-                        handleClickbtn(temp);
                         getSoundPreview(2);
-                        //console.log("Datos Biblio: ", temp);
+                        console.log("Datos Biblio: ", temp);
                       }}
                   >Library</button>
 
                   <button className="button"
                     onClick={() => {
-                      //temp = dataCoffee;
-                      handleClickbtn(temp);
                       getSoundPreview(3);
-                      //console.log("Datos Cafe: ", temp);
+                      console.log("Datos Cafe: ", temp);
                     }}
                   >Coffee Shop</button>
                 </div>
@@ -199,42 +156,6 @@ function Landing() {
                     
                     >{P1}</fieldset>
                   )} 
-{/* 
-                  <button className="buttonPlaylist"
-                    onClick={() => {
-                        temp = dataSea;
-
-                      }}
-                  >Tuesday</button>
-
-                  <button className="buttonPlaylist"
-                    onClick={() => {
-                        temp = dataLibrary;
-
-                      }}
-                  >Wednesday</button>
-
-                  <button className="buttonPlaylist"
-                    onClick={() => {
-                      temp = dataCoffee;
-
-                    }}
-                  >Thursday</button>
-
-                  <button className="buttonPlaylist"
-                    onClick={() => {
-                      temp = dataCoffee;
-                      handleClickbtn1(temp[0].sound_name);
-                      handleClickbtn2(temp[1].sound_name);
-                      handleClickbtn3(temp[2].sound_name);
-                      handleClickbtn4(temp[3].sound_name);
-                      handleClickbtn5(temp[4].sound_name);
-                      handleClickbtn6(temp[5].sound_name);
-                      console.log("Datos Cafe: ", temp);
-                    }}
-                  >Friday</button> */}
-
-
 
                 </div>
               )}
@@ -246,61 +167,44 @@ function Landing() {
                     {/* FOREST */}
                     <button className="buttonSound"
                       onClick={() => {
-                          // temp = dataForest;
                           console.log(temp[0].sound_name + "sounds");
-                          // console.log(temp[0].sound_name + "sounds", temp[0]);
-                          handleClick(temp[0].sound_name);
-                          // handleClickbtn1(temp[0].sound_name);
                         }}
-                        // >{1 ? <p>Sound name: {temp[0].sound_name}</p> : <p>No sound name available</p>}</button>
-                        // >1</button>
-                    >{textbtn1}</button> 
+                    >{temp[0].sound_name}</button> 
 
                     <button className="buttonSound"
                       onClick={() => {
-                          // temp = dataForest;
-                          console.log(temp[1].sound_name + "sounds");
-                          // console.log(temp[1].sound_name + "sounds", temp[1]);
-                          // <Link to={{ pathname: './Sounds', state: {sound} }} />
-                          // handleClickbtn2(temp[1].sound_name);
+                          console.log(temp[1].sound_name + " sounds");
                         }}
-                    // >2</button>
-                    >{textbtn2}</button>
+                    >{temp[1].sound_name}</button>
 
                 </div>
 
                 <div className = "row">
                   <div className="configuration">
-                    <p>Informacion del hijo: {informacion}</p>
-                    <Sounds someData={temp[0]} sendDatos={manejarInformacion}/>
-                    
+                    {/* <p>Informacion del hijo: {informacion}</p> */}
+                    <Sounds someData={temp[0]}/>
+                    {/* <Sounds someData={temp[0]} sendDatos={manejarInformacion}/> */}
                   </div>  
-                  {/* <div className="configuration">             
+
+                  <div className="configuration">             
                     <Sounds someData={temp[1]} />
-                  </div> */}
+                  </div>
                 </div>
 
-                {/* <div className = "row">
+                <div className = "row">
 
                     <button className="buttonSound"
                       onClick={() => {
-                          // temp = dataForest;
-                          console.log(temp[2].sound_name + "sounds", temp[2]);
-                          handleClick(temp[2].sound_name);
-                          // handleClickbtn3(temp[2].sound_name);
+                          console.log(temp[2].sound_name + "sounds");
                         }}
-                    // >3</button>
-                    >{textbtn3}</button>
+                    >{temp[2].sound_name}</button>
                     
                     <button className="buttonSound"
                       onClick={() => {
-                          // temp = dataForest;
-                          console.log(temp[3].sound_name + "sounds", temp[3]);
-                          handleClick(temp[3].sound_name);
-                          // handleClickbtn4(temp[3].sound_name);
+                          console.log(temp[3].sound_name + "sounds");
                         }}
                     // >4</button>
-                    >{textbtn4}</button>
+                    >{temp[3].sound_name}</button>
 
                 </div>
                 
@@ -318,22 +222,17 @@ function Landing() {
                     <button className="buttonSound"
                       onClick={() => {
                           // temp = dataForest;
-                          console.log(temp[4].sound_name + "sounds", temp[4]);
-                          handleClick(temp[4].sound_name);
+                          console.log(temp[4].sound_name + "sounds");
                           // handleClickbtn5(temp[4].sound_name);
                         }}
                     // >5</button>
-                    >{textbtn5}</button>
+                    >{temp[4].sound_name}</button>
 
                     <button className="buttonSound"
                       onClick={() => {
-                          // temp = dataForest;
-                          console.log(temp[5].sound_name + "sounds", temp[5]);
-                          handleClick(temp[5].sound_name);
-                          // handleClickbtn6(temp[5].sound_name);
+                          console.log(temp[5].sound_name + "sounds");
                         }}
-                    // >6</button>
-                    >{textbtn6}</button>
+                    >{temp[5].sound_name}</button>
 
                 </div>
                 
@@ -344,7 +243,7 @@ function Landing() {
                   <div className="configuration">             
                     <Sounds someData={temp[5]} />
                   </div>
-                </div> */}
+                </div>
 
               </div>
 
