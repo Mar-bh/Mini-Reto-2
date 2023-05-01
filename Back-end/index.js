@@ -18,46 +18,6 @@ const path = require("path");
 
 app.use(bodyParser.json());
 
-// GET FOREST SOUNDS
-app.get('/datosForest', (req, res) => {
-  var query = "SELECT * FROM sounds WHERE sound_id BETWEEN 1 AND 6";
-  connection.query(query, (error, results, fields) => {
-    if (error) throw error;
-    res.send(results);
-    // console.log("Datos: \t" + results);
-  });
-});
-
-// GET SEA SOUNDS
-app.get('/datosSea', (req, res) => {
-  var query = "SELECT * FROM sounds WHERE sound_id BETWEEN 19 AND 24";
-  connection.query(query, (error, results, fields) => {
-    if (error) throw error;
-    res.send(results);
-    // console.log("Datos: \t" + results);
-  });
-});
-
-// GET COFFEE SOUNDS
-app.get('/datosCoffee', (req, res) => {
-  var query = "SELECT * FROM sounds WHERE sound_id BETWEEN 13 AND 18";
-  connection.query(query, (error, results, fields) => {
-    if (error) throw error;
-    res.send(results);
-    // console.log("Datos: \t" + results);
-  });
-});
-
-// GET LIBRARY SOUNDS
-app.get('/datosLibrary', (req, res) => {
-  var query = "SELECT * FROM sounds WHERE sound_id BETWEEN 7 AND 12";
-  connection.query(query, (error, results, fields) => {
-    if (error) throw error;
-    res.send(results);
-    // console.log("Datos: \t" + results);
-  });
-});
-
 // GET
 app.get('/datos', (req, res) => {
   connection.query('SELECT * FROM sounds', (error, results, fields) => {
@@ -77,7 +37,7 @@ app.get('/playlist', (req, res) => {
 });
 
 app.get('/theme', (req,res) => {
-  connection.query("SELECT * FROM playlist JOIN playlist_sounds ON playlist.playlist_id = playlist_sounds.playlist_id"  , (error, results, fields) => {
+  connection.query("SELECT playlist.playlist_id, playlist_name, sounds.sound_id, sound_name, sound_source FROM playlist JOIN playlist_sounds ON playlist.playlist_id = playlist_sounds.playlist_id  JOIN sounds ON sounds.sound_id = playlist_sounds.sound_id"  , (error, results, fields) => {
     if (error) throw error;
     res.send(results);
     // console.log("Playlists: \t" + results);
