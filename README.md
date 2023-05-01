@@ -9,7 +9,7 @@ Nuestra página web tiene dos secciones. Del lado izquierdo se puede encontrar u
 Por otra parte, del lado derecho de la página podemos encontrarnos con nuestra sección de sonidos de ambiente, tenemos 4 posibles temáticas de sonidos: el bosque, el mar, una cafeteria y una biblioteca. El usuario puede elegir su preferida, al seleccionar una temática en la parte de abajo aparecerá la lista de los seis posibles sonidos que pueden escuchar y también pueden cambiar el volumen de los mmismos. En la parte de playlist de esta sección, el usuario puede gennerar "playlists" que serían las connfiguraciones de volumen de los sonidos que escucha, el usuario puede publicar, actualizar y eliminar estas playlists.
 
 ## Deployment:
-
+https://studyapp-mini-reto.vercel.app/
 
 ## Tecnologías 
 - Frontend: React
