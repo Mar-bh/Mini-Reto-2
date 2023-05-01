@@ -25,7 +25,7 @@ Nuestra API interna se conecta a nuestra base de datos y maneja la información 
 
 Los usuarios de nuestra API serían los desarrolladores de la página web que la utilizan para administrar la base de datos de las configuraciones de sonidos.
 
-La documentación de la API interna fue generada con Swagger, se encuentra en el archivo `SwaggerAPI.yaml` y se puede ver como pdf,  para su facil visualización, en el archivo `APISwagger.pdf`. La carpeta client contiene la app en react que se encarga de manejar la interfaz de usuario, esta se conecta a la API en el index.js. 
+La documentación de la API interna fue generada con Swagger, se encuentra en el archivo `SwaggerAPI.yaml`. La carpeta client contiene la app en react que se encarga de manejar la interfaz de usuario, esta se conecta a la API en el index.js. 
 
 ## Diagrama de Componentes
 
