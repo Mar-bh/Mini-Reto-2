@@ -74,6 +74,7 @@ function Landing() {
         break;
     }
     setInformacion(tempConfig);
+    console.log("Informacion: odio");
     console.log(tempConfig);
   }
   
@@ -97,8 +98,16 @@ function Landing() {
   };
 
   const SaveData = async (body) => {
-    const response = await fetch('/playlist',body);
+    console.log("Body: ", body)
+    const response = await fetch('/playlist',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
     const data = await response.json();
+    return data;
   };
     
 
@@ -275,7 +284,9 @@ function Landing() {
                 <div className = "PlaylistOptions">
                   <button className="button"
                     onClick={() => {
-                      SaveData(informacion);
+                      SaveData(informacion)
+                      .then(data => console.log(data))
+                       .catch(error => console.error(error));;
                     }}
                   >Save</button>
 
