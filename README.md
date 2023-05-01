@@ -5,6 +5,8 @@ Web App - Mini Reto: Study Vibes
 Esta es una pagina web de concentración, tiene el objetivo de permitir que sus usuarios generen un ambiente sonoro agradable para sus sesiones de estudio y/o trabajo. Cuenta también con una todo list. 
 
 ## Cómo utilizar la página web
+Nuestra página web tiene dos secciones. Del lado izquierdo se puede encontrar una To Do List, en el input field los usuarios pueden agregar las tareas que quieren realizar, las cuales apareceran en una lista debajo de este input. Cuando el usuario haya terminado la tarea, puede darle click para tacharla y posteriormente eliminarla.
+Por otra parte, del lado derecho de la página podemos encontrarnos con nuestra sección de sonidos de ambiente, tenemos 4 posibles temáticas de sonidos: el bosque, el mar, una cafeteria y una biblioteca. El usuario puede elegir su preferida, al seleccionar una temática en la parte de abajo aparecerá la lista de los seis posibles sonidos que pueden escuchar y también pueden cambiar el volumen de los mmismos. En la parte de playlist de esta sección, el usuario puede gennerar "playlists" que serían las connfiguraciones de volumen de los sonidos que escucha, el usuario puede publicar, actualizar y eliminar estas playlists.
 
 ## Deployment:
 
@@ -28,11 +30,11 @@ La documentación de la API interna fue generada con Swagger, se encuentra en el
 ##Diagrama de Componentes
 
 #Futuras Funciones
-
+Se está trabajando para implementar un timer tipo pomodoro, para poder generar sesiones de estudio.
 
 ## Autores
 - [Mariana Esquivel Hernández](https://github.com/Mariana-code)
-  - [Mariana Bustos Hernández](https://github.com/Mar-bh)
+- [Mariana Bustos Hernández](https://github.com/Mar-bh)
 
 ## Licencia
 [MIT](https://choosealicense.com/licenses/mit/)
